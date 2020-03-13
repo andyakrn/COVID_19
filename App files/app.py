@@ -7,8 +7,7 @@ from colors import *
 from buttons import *
 from header_summary import *
 from visualizations import *
-
-external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
+from dash.dependencies import Input, Output
 
 app = dash.Dash(__name__, )
 
@@ -52,10 +51,21 @@ app.layout = html.Div(
 
         html.Figure(
             style={'display': 'flex',
+                   'flex-direction': 'column',
+                   'margin-left': '0px',
+                   'margin-right': '0px'
+
+                   },
+            children=[world_map2]),
+
+        html.Figure(
+            style={'display': 'flex',
                    'flex-direction': 'row',
                    'justify-content': 'space-between'
                    },
             children=[brian_button, andrei_button, christy_button, chinwe_button]),
+        
+     
     ],
 
 )
