@@ -3,6 +3,7 @@ import dash_core_components as dcc
 import dash_html_components as html
 from colors import colors
 import pandas as pd
+import numpy as np
 import pickle
 
 
@@ -90,6 +91,8 @@ graph2 = dcc.Graph(
 df = pd.read_csv('https://raw.githubusercontent.com/plotly/datasets/master/2011_february_us_airport_traffic.csv')
 df.head()
 
+states_dd = df['state'].unique()
+
 df['text'] = df['airport'] + '' + df['city'] + ', ' + df['state'] + '' + 'Arrivals: ' + df['cnt'].astype(str)
 
 scl = [ [0,"rgb(5, 10, 172)"],[0.35,"rgb(40, 60, 190)"],[0.5,"rgb(70, 100, 245)"],\
@@ -137,3 +140,7 @@ layout = dict(
 fig = dict( data=data, layout=layout )    
 
 world_map2 = dcc.Graph(id = 'Worldmap2', figure = fig)
+
+map_states = dcc.Dropdown(id='map-states', 
+                        options= [{'label': i, 'value': i} for i in states_dd if i is not np.nan],
+                        value = 'AL' )
