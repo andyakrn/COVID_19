@@ -1,22 +1,8 @@
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
-import pandas as pd
-import pickle
-from colors import *
-from buttons import *
-from header_summary import *
-from visualizations import *
-from dash.dependencies import Input, Output
+from imports import *
 
 app = dash.Dash(__name__, )
 
-# load in data file
-DATA_PATH = '/Users/ChristyLiner/Documents/Corona Virus/COVID_19'
-pickle_in = open(DATA_PATH + '/df_patient.pickle', 'rb')
-df_patient = pickle.load(pickle_in)
-
-app.layout = html.Div(
+app.layout = html.Main(
     style={
         'backgroundColor': colors['body_background'],
         'width': '97%',
@@ -49,7 +35,9 @@ app.layout = html.Div(
                    },
             children=[graph1, graph2]),
 
-        html.Div([map_states], style = {'width': '48%', 'display': 'inline-block'}),
+        html.Div(
+            id="slider-container",
+            children=[slider_text, slider]),
 
 
         html.Figure(
@@ -57,9 +45,8 @@ app.layout = html.Div(
                    'flex-direction': 'column',
                    'margin-left': '0px',
                    'margin-right': '0px'
-
                    },
-            children=[world_map2]),
+            children=[world_map3]),
 
         html.Figure(
             style={'display': 'flex',
@@ -67,8 +54,8 @@ app.layout = html.Div(
                    'justify-content': 'space-between'
                    },
             children=[brian_button, andrei_button, christy_button, chinwe_button]),
-        
-     
+
+
     ],
 
 )

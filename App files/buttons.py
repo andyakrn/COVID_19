@@ -1,7 +1,4 @@
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
-from colors import colors
+from imports import *
 
 button_style = {'color': colors['text'],
                'font-size' : '16px',
