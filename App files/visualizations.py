@@ -1,10 +1,9 @@
-
 from imports import *
 
 
 load in data file
 DATA_PATH = '/Users/ChristyLiner/Documents/Corona Virus/COVID_19'
-pickle_in = open(DATA_PATH + '/df_patient.pickle', 'rb')
+pickle_in = open(DATA_PATH + '/COVID_Hopkins_df.pickle', 'rb')
 df_patient = pickle.load(pickle_in)
 
 # DATA_PATH = '/Users/cepyp/Projects/COVID_19-Chinwe'
@@ -19,8 +18,8 @@ world_map = dcc.Graph(
         'width': '100%'},
     figure={
         'data': [
-            {'x': df_patient['region'],
-             'y': df_patient['age'],
+            {'x': df_patient['Date'],
+             'y': df_patient['Confirmed'],
              'type': 'bar'
              },
         ],
@@ -44,8 +43,8 @@ graph1 = dcc.Graph(
     },
     figure={
         'data': [
-            {'x': df_patient['region'],
-             'y': df_patient['age'],
+            {'x': df_patient['Date'],
+             'y': df_patient['Confirmed'],
              'type': 'bar'
              },
         ],
@@ -54,7 +53,9 @@ graph1 = dcc.Graph(
             'plot_bgcolor': colors['graph_background'],
             'paper_bgcolor': colors['graph_background'],
            
-            'color': colors['text']
+            'color': colors['text'],
+            'font':
+            {'color': colors['text']}
              ,
         }
     },
@@ -69,8 +70,8 @@ graph2 = dcc.Graph(
     },
     figure={
         'data': [
-            {'x': df_patient['region'],
-             'y': df_patient['age'],
+            {'x': df_patient['Date'],
+             'y': df_patient['Confirmed'],
              'type': 'bar'
              },
         ],
@@ -79,7 +80,9 @@ graph2 = dcc.Graph(
             'plot_bgcolor': colors['graph_background'],
             'paper_bgcolor': colors['graph_background'],
 
-            'color': colors['text']
+            'color': colors['text'],
+            'font':
+            {'color': colors['text']}
 
         }
     }

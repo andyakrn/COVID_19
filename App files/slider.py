@@ -1,17 +1,18 @@
-import dash
-import dash_core_components as dcc
-import dash_html_components as html
-from colors import colors
 
-YEARS = [2003, 2004, 2005, 2006, 2007, 2008,
-         2009, 2010, 2011, 2012, 2013, 2014, 2015]
+from colors import colors
+from imports import *
+
+DATA_PATH1 = '/Users/ChristyLiner/Documents/Corona Virus/COVID_19'
+pickle_in = open(DATA_PATH1 + '/COVID_Hopkins_df.pickle', 'rb')
+grouped_df = pickle.load(pickle_in)
+
+YEARS = grouped_df['Confirmed'].unique()
 
 slider_text = html.P(
     id="slider-text",
     style={'color': colors['text']},
     children="Drag the slider to change the year:",
 )
-
 slider = dcc.Slider(
     id="years-slider",
     min=min(YEARS),

@@ -52,7 +52,7 @@ app.layout = html.Main(
                    'margin-left': '0px',
                    'margin-right': '0px'
                    },
-            children=[world_map3]),
+            children=[world_map4]),
 
         html.Figure(
             style={'display': 'flex',
@@ -61,11 +61,9 @@ app.layout = html.Main(
                    },
             children=[brian_button, andrei_button, christy_button, chinwe_button]),
 
-
     ],
 
 )
-
 
 # @app.callback(Output('Worldmap2', 'figure'), [Input('map-states', 'value')])
 # def update_map(selected_state):
