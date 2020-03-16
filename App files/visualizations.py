@@ -1,4 +1,6 @@
+
 from imports import *
+
 
 # load in data file
 DATA_PATH = '/Users/ChristyLiner/Documents/Corona Virus/COVID_19'
@@ -88,48 +90,6 @@ DATA_PATH1 = '/Users/ChristyLiner/Documents/Corona Virus/COVID_19'
 pickle_in = open(DATA_PATH1 + '/COVID_Hopkins_df.pickle', 'rb')
 grouped_df = pickle.load(pickle_in)
 
-data = [dict(
-    type='scattergeo',
-    locations=grouped_df['Country/Region'],
-    locationmode='country names',
-    scope='world',
-    size=grouped_df['Confirmed'],
-    # text=df['text'],
-    # mode='markers',
-    # animation_frame=grouped_df['Confirmed'],
-    marker=dict(
-        size=8,
-        opacity=0.8,
-        reversescale=True,
-        autocolorscale=False,
-        # symbol='square',
-        line=dict(
-            width=1,
-            color='rgba(102, 102, 102)'),
-        colorscale=scl,
-        cmin=0,
-        color=grouped_df['Country/Region'],
-        # cmax=df['cnt'].max(),
-        colorbar=dict(
-            title="Incoming flightsFebruary 2011"
-        )
-    ))]
-layout = dict(
-    title='Global COVID-19 Cases<br>(Hover for country names)',
-    colorbar=True,
-    geo=dict(
-        showland=True,
-        landcolor="rgb(250, 250, 250)",
-        subunitcolor="rgb(217, 217, 217)",
-        countrycolor="rgb(217, 217, 217)",
-        countrywidth=0.5,
-        subunitwidth=0.5
-    ),
-)
-fig = dict(data=data, layout=layout)
-
-world_map2 = dcc.Graph(id='Worldmap2', figure=fig)
-
 
 data = [ dict(
         type = 'scattergeo',
@@ -174,5 +134,4 @@ layout = dict(
     # 'plot_bgcolor': colors['graph_background'],
     # 'paper_bgcolor': colors['graph_background'],
     # 'color': colors['text']
-
 
