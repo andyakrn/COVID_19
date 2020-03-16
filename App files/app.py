@@ -55,7 +55,6 @@ app.layout = html.Main(
                    },
             children=[brian_button, andrei_button, christy_button, chinwe_button]),
 
-
     ],
 
 )
