@@ -2,10 +2,14 @@
 from imports import *
 
 
-# load in data file
+load in data file
 DATA_PATH = '/Users/ChristyLiner/Documents/Corona Virus/COVID_19'
 pickle_in = open(DATA_PATH + '/df_patient.pickle', 'rb')
 df_patient = pickle.load(pickle_in)
+
+# DATA_PATH = '/Users/cepyp/Projects/COVID_19-Chinwe'
+# pickle_in = open(DATA_PATH + '/df_patient.pickle', 'rb')
+# df_patient = pickle.load(pickle_in)
 
 world_map = dcc.Graph(
     id='Worldmap1',
@@ -89,6 +93,10 @@ scl = [[0, "rgb(5, 10, 172)"], [0.35, "rgb(40, 60, 190)"], [0.5, "rgb(70, 100, 2
 DATA_PATH1 = '/Users/ChristyLiner/Documents/Corona Virus/COVID_19'
 pickle_in = open(DATA_PATH1 + '/COVID_Hopkins_df.pickle', 'rb')
 grouped_df = pickle.load(pickle_in)
+
+# DATA_PATH = '/Users/cepyp/Projects/COVID_19'
+# pickle_in = open(DATA_PATH + '/COVID_Hopkins_df.pickle', 'rb')
+# grouped_df = pickle.load(pickle_in)
 
 
 data = [ dict(
