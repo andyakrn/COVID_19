@@ -14,3 +14,5 @@ style = {'margin-right': '5px',
          'padding': '0'}
 
 world_map4 = dcc.Graph(figure=fig, style = style)
+
+#test
