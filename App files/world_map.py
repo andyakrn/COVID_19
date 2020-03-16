@@ -1,5 +1,17 @@
 from imports import *
 
+fig = px.choropleth(
+    grouped_df, 
+    locations=grouped_df['Country/Region'], 
+    locationmode='country names', 
+    color = grouped_df['Confirmed'],
+    hover_name = 'Country/Region',
+    title='test title'
+    )
+
+
+world_map4 = dcc.Graph(figure=fig)
+
 world_map3 = dcc.Graph(
     id='Graph3',
     style={
@@ -10,13 +22,20 @@ world_map3 = dcc.Graph(
     },
     figure={
         'data': [
-           {'type': 'scattergeo',
+           {'type': 'go.Choropleth',
             # 'data_frame': grouped_df,
-            'locations': 'Country/Region',
+            'locations': grouped_df['Country/Region'],
             'locationmode': 'country names',
-            'size': grouped_df['Confirmed'],
 
-            },
+            }
         ],
+        'layout': {
+            'title': 'Test Title',
+            'plot_bgcolor': colors['graph_background'],
+            'paper_bgcolor': colors['graph_background'],
+            'font':
+            {'color': colors['text']}
+        },
+
     }
 )
