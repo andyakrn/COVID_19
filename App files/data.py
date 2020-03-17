@@ -1,5 +1,5 @@
 from imports import *
-
+import pandas as pd
 
 
 DATA_PATH1 = '/Users/ChristyLiner/Documents/Corona Virus/COVID_19'

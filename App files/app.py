@@ -11,51 +11,11 @@ app.layout = html.Main(
         'flex-direction': 'column',
     },
     children=[
-        html.Div(
-            style={'display': 'flex',
-                   'flex-direction': 'column'
-                   },
-            children=[header1, header2, summary1, summary2]),
-
-        html.Figure(
-            style={'display': 'flex',
-                   'flex-direction': 'column',
-                   'margin-left': '0px',
-                   'margin-right': '0px'
-
-                   },
-            children=[world_map]),
-
-        html.Figure(
-            style={'display': 'flex',
-                   'flex-direction': 'row',
-                   'margin-left': '0px',
-                   'margin-right': '0px'
-
-                   },
-            children=[graph1, graph2]),
-
-        html.Div(
-            id="slider-container",
-            children=[slider_text, slider]),
-
-
-        html.Figure(
-            style={'display': 'flex',
-                   'flex-direction': 'column',
-                   'margin-left': '0px',
-                   'margin-right': '0px'
-                   },
-            children=[world_map4]),
-
-        html.Figure(
-            style={'display': 'flex',
-                   'flex-direction': 'row',
-                   'justify-content': 'space-between'
-                   },
-            children=[brian_button, andrei_button, christy_button, chinwe_button]),
-
-    ],
+        headers,
+        world_map,
+        graph_figures,
+        big_graph,
+        all_buttons],
 
 )
 if __name__ == '__main__':
