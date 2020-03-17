@@ -18,4 +18,8 @@ from data import *
 from world_map import *
 from colors import colors
 from graphs import *
+<<<<<<< HEAD
 #test
+=======
+from user_input import *
+>>>>>>> 10d00f64d47c2076f0be77788097a3c936138de6
