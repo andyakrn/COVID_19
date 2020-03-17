@@ -78,4 +78,4 @@ def return_inputs(age, gender, pre_cond):
 if __name__ == '__main__':
     app.run_server(debug=True)
 
-#test
+#test2
