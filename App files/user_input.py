@@ -19,4 +19,3 @@ user_health = dcc.Input(
             type="number",
             debounce=True, 
             placeholder="Number of pre-existing health conditions")
-

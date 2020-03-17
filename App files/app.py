@@ -11,58 +11,11 @@ app.layout = html.Main(
         'flex-direction': 'column',
     },
     children=[
-        html.Div(
-            style={'display': 'flex',
-                   'flex-direction': 'column'
-                   },
-            children=[header1, header2, summary1, summary2]),
-
-        html.Figure(
-            style={'display': 'flex',
-                   'flex-direction': 'column',
-                   'margin-left': '0px',
-                   'margin-right': '0px'
-
-                   },
-            children=[world_map]),
-        html.Div(id = 'user-input',
-                children = [user_age, user_gender, user_health] ),
-        
-        html.Div(id = 'user-output',
-                style = { 'color' : colors['text']}),
-        
-
-        html.Figure(
-            style={'display': 'flex',
-                   'flex-direction': 'row',
-                   'margin-left': '0px',
-                   'margin-right': '0px'
-
-                   },
-            children=[graph1, graph2]),
-
-        html.Div(
-            id="slider-container",
-            children=[slider_text, slider]),
-
-
-        html.Figure(
-            style={'display': 'flex',
-                   'flex-direction': 'column',
-                   'margin-left': '0px',
-                   'margin-right': '0px'
-                   },
-            children=[world_map4]),
-
-        html.Figure(
-            style={'display': 'flex',
-                   'flex-direction': 'row',
-                   'justify-content': 'space-between'
-                   },
-            children=[brian_button, andrei_button, christy_button, chinwe_button]),
-
-    ],
-
+        headers,
+        world_map,
+        graph_figures,
+        big_graph,
+        all_buttons],
 )
 
 # @app.callback(Output('Worldmap2', 'figure'), [Input('map-states', 'value')])
@@ -109,13 +62,14 @@ app.layout = html.Main(
 #         ),
 #     )}
 
-@app.callback(
-    Output('user-output', 'children'),
-    [Input('age', 'value'),
-     Input('gender', 'value'),
-     Input('pre_cond', 'value')])
-def return_inputs(age, gender, pre_cond):
-    return 'I am a {a} year old {g}, with {h} pre-existing health conditions.'.format(a = age, g = gender, h = pre_cond)
+# @app.callback(
+#     Output('user-output', 'children'),
+#     [Input('age', 'value'),
+#      Input('gender', 'value'),
+#      Input('pre_cond', 'value')])
+# def return_inputs(age, gender, pre_cond):
+#     return 'I am a {a} year old {g}, with {h} pre-existing health conditions.'.format(a = age, g = gender, h = pre_cond)
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
