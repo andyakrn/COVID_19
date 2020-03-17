@@ -5,7 +5,7 @@ import pandas as pd
 import pickle
 import plotly.graph_objects as go
 import plotly.express as px
-
+from ipywidgets import interact
 
 from dash.dependencies import Input, Output
 import plotly.express as px
@@ -19,4 +19,5 @@ from world_map import *
 from colors import colors
 from graphs import *
 from user_input import *
+
 

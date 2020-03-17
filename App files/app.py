@@ -19,8 +19,10 @@ app.layout = html.Main(
                 children = [user_age, user_gender, user_health]),
         html.Div(id = 'user-output',
                 style = { 'color' : colors['text']}),
-        all_buttons],
+        all_buttons
+        ],
 )
+
 
 # @app.callback(Output('Worldmap2', 'figure'), [Input('map-states', 'value')])
 # def update_map(selected_state):
@@ -74,8 +76,6 @@ app.layout = html.Main(
 def return_inputs(age, gender, pre_cond):
     return 'I am a {a} year old {g}, with {h} pre-existing health conditions.'.format(a = age, g = gender, h = pre_cond)
 
-
 if __name__ == '__main__':
     app.run_server(debug=True)
 
-#test2

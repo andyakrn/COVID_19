@@ -1,7 +1,6 @@
-# https://dash.plot.ly/dash-core-components/input
 from imports import *
 
-
+app=dash.Dash()
 user_age = dcc.Input(
             id="age",
             type="number",
