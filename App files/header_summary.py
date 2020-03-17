@@ -13,7 +13,7 @@ summary_style = {
     'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 2)',
     'margin-bottom': '5px',
     'width': '96%',
-    'line-height': '1.7'
+    'line-height': '1.7',
 }
 header1 = html.H1(
     children='COVID-19 Coronavirus',
@@ -47,3 +47,9 @@ summary2 = html.P(
     children='The SARS-CoV-2 virus is a betacoronavirus, like MERS-CoV and SARS-CoV.  All three of these viruses have their origins in bats. The sequences from U.S. patients are similar to the one that China initially posted, suggesting a likely single, recent emergence of this virus from an animal reservoir. (Source: CDC)',
     style=summary_style
 )
+headers = html.Div(
+    style={'display': 'flex',
+           'flex-direction': 'column'
+           },
+    children=[header1, header2, summary1, summary2])
+#border
