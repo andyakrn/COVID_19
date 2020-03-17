@@ -92,3 +92,4 @@ big_graph = html.Figure(
            'margin-right': '0px'
            },
     children=[graph3])
+#border

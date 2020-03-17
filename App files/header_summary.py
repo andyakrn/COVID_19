@@ -52,3 +52,4 @@ headers = html.Div(
            'flex-direction': 'column'
            },
     children=[header1, header2, summary1, summary2])
+#border

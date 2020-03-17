@@ -33,3 +33,4 @@ world_map = html.Figure(
 
            },
     children=[dcc.Graph(figure=fig, style=style)])
+#border
