@@ -16,7 +16,7 @@ app.layout = html.Main(
         graph_figures,
         big_graph,
         all_buttons],
-
+#test
 )
 if __name__ == '__main__':
     app.run_server(debug=True)
