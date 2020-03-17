@@ -15,6 +15,10 @@ app.layout = html.Main(
         world_map,
         graph_figures,
         big_graph,
+        html.Div(id = 'user-input',
+                children = [user_age, user_gender, user_health]),
+        html.Div(id = 'user-output',
+                style = { 'color' : colors['text']}),
         all_buttons],
 )
 
@@ -62,13 +66,13 @@ app.layout = html.Main(
 #         ),
 #     )}
 
-# @app.callback(
-#     Output('user-output', 'children'),
-#     [Input('age', 'value'),
-#      Input('gender', 'value'),
-#      Input('pre_cond', 'value')])
-# def return_inputs(age, gender, pre_cond):
-#     return 'I am a {a} year old {g}, with {h} pre-existing health conditions.'.format(a = age, g = gender, h = pre_cond)
+@app.callback(
+    Output('user-output', 'children'),
+    [Input('age', 'value'),
+     Input('gender', 'value'),
+     Input('pre_cond', 'value')])
+def return_inputs(age, gender, pre_cond):
+    return 'I am a {a} year old {g}, with {h} pre-existing health conditions.'.format(a = age, g = gender, h = pre_cond)
 
 
 if __name__ == '__main__':
