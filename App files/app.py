@@ -14,59 +14,42 @@ app.layout = html.Main(
         headers,
         world_map,
         graph_figures,
-        big_graph,
-        html.Div(id = 'user-input',
-                children = [user_age, user_gender, user_health]),
-        html.Div(id = 'user-output',
-                style = { 'color' : colors['text']}),
-        all_buttons
-        ],
+        interactive_graph,
+        user_input,
+        user_output,
+        all_buttons,
+
+    ],
 )
 
 
-# @app.callback(Output('Worldmap2', 'figure'), [Input('map-states', 'value')])
-# def update_map(selected_state):
-#     filtered_map = df[df['state'] == selected_state]
-#     return{ 
-#         'data' : [dict(
-#         type = 'scattergeo',
-#         locationmode = 'USA-states',
-#         lon = filtered_map['long'],
-#         lat = filtered_map['lat'],
-#         text = filtered_map['text'],
-#         mode = 'markers',
-#         marker = dict(
-#             size = 8,
-#             opacity = 0.8,
-#             reversescale = True,
-#             autocolorscale = False,
-#             symbol = 'square',
-#             line = dict(
-#                 width=1,
-#                 color='rgba(102, 102, 102)'
-#             ),
-#             colorscale = scl,
-#             cmin = 0,
-#             color = df['cnt'],
-#             cmax = df['cnt'].max(),
-#             colorbar=dict(
-#                 title="Incoming flightsFebruary 2011"
-#             )
-#         ))],
-# 'layout': dict(
-#         title = 'Most trafficked US airports<br>(Hover for airport names)',
-#         colorbar = True,
-#         geo = dict(
-#             scope='usa',
-#             projection=dict( type='albers usa' ),
-#             showland = True,
-#             landcolor = "rgb(250, 250, 250)",
-#             subunitcolor = "rgb(217, 217, 217)",
-#             countrycolor = "rgb(217, 217, 217)",
-#             countrywidth = 0.5,
-#             subunitwidth = 0.5
-#         ),
-#     )}
+@app.callback(
+    Output('plot_by_country', 'figure'),
+    [Input('country_dropdown', 'value'),
+     Input('status_radio', 'value')])
+def update_figure(selected_country, radio_item):
+    filtered_df = grouped_df.loc[grouped_df['Country/Region']
+                                 == selected_country]
+    melted_df = pd.melt(filtered_df, id_vars='Date', value_vars=[
+                        'Confirmed', 'Recovered', 'Deaths', 'Active'], var_name='Status')
+    fig = px.bar(melted_df.loc[melted_df['Status'] == radio_item],
+                 x='Date',
+                 y='value',
+                 title='Number of {} for {} (Select a different status or country to update)'.format(
+        radio_item, selected_country),
+        barmode='group',
+        template='plotly_dark',
+        range_y=[0, int(filtered_df['Confirmed'].max()),
+                 ]
+    )
+    fig.update_layout({'paper_bgcolor': colors['graph_background'],
+                       'plot_bgcolor': colors['graph_background'],
+                    #    'color': colors['text'],
+                       # 'font': {'color': colors['text']
+                       })
+
+    return fig
+
 
 @app.callback(
     Output('user-output', 'children'),
@@ -74,8 +57,8 @@ app.layout = html.Main(
      Input('gender', 'value'),
      Input('pre_cond', 'value')])
 def return_inputs(age, gender, pre_cond):
-    return 'I am a {a} year old {g}, with {h} pre-existing health conditions.'.format(a = age, g = gender, h = pre_cond)
+    return 'I am a {a} year old {g}, with {h} pre-existing health conditions.'.format(a=age, g=gender, h=pre_cond)
+
 
 if __name__ == '__main__':
     app.run_server(debug=True)
-

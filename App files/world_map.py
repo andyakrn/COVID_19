@@ -30,5 +30,4 @@ world_map = html.Figure(
            'margin-right': '0px'
 
            },
-    children=[dcc.Graph(figure=fig, style=style)])
-#border
+    children=[dcc.Graph(id = 'world_map1', figure=fig, style=style)])
