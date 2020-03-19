@@ -1,7 +1,7 @@
 from appfiles.imports import *
 
 app = dash.Dash(__name__, )
-
+server=app.server
 app.layout = html.Main(
     style={
         'backgroundColor': colors['body_background'],
@@ -76,6 +76,6 @@ def return_inputs(age, gender, pre_cond):
 
 
 if __name__ == '__main__':
-    app.run_server(debug=False,port=8050)
+    app.run_server(debug=False,port=80)
 
 #test2
