@@ -1,4 +1,4 @@
-from imports import *
+from appfiles.imports import *
 
 button_style = {'color': colors['text'],
                 'font-size': '16px',

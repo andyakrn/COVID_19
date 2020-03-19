@@ -1,7 +1,7 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-from colors import colors
+from appfiles.colors import colors
 
 summary_style = {
     'textAlign': 'left',

@@ -1,8 +1,8 @@
 
-from colors import colors
-from imports import *
+from appfiles.colors import colors
+from appfiles.imports import *
 
-pickle_in = open('../COVID_Hopkins_df.pickle', 'rb')
+pickle_in = open('COVID_Hopkins_df.pickle', 'rb')
 grouped_df = pickle.load(pickle_in)
 
 DATES = list(set(pd.to_datetime(grouped_df['Date']).unique()))

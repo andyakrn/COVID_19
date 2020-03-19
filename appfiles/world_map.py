@@ -1,4 +1,4 @@
-from imports import *
+from appfiles.imports import *
 
 max_cases = grouped_df['Confirmed'].max()
 

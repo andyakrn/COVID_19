@@ -1,5 +1,5 @@
 # https://dash.plot.ly/dash-core-components/input
-from imports import *
+from appfiles.imports import *
 
 
 user_age = dcc.Input(

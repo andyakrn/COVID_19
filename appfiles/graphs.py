@@ -1,4 +1,4 @@
-from imports import *
+from appfiles.imports import *
 
 graph1 = dcc.Graph(
     id='Graph1',
