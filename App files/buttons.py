@@ -33,5 +33,3 @@ all_buttons = html.Figure(
            'flex-direction': 'row',
            'justify-content': 'space-between'},
     children=[brian_button, andrei_button, christy_button, chinwe_button])
-
-#border

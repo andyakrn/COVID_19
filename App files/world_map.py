@@ -13,7 +13,9 @@ fig = px.choropleth(
     projection='natural earth',
     animation_frame='Date',
     range_color=[0, max_cases],
-    template='plotly_dark')
+    template='plotly_dark',
+
+)
 fig.update_layout(paper_bgcolor=colors['graph_background'])
 
 style = {'margin-right': '5px',
@@ -30,4 +32,5 @@ world_map = html.Figure(
            'margin-right': '0px'
 
            },
-    children=[dcc.Graph(id = 'world_map1', figure=fig, style=style)])
+    children=[dcc.Graph(figure=fig, style=style)])
+#border
