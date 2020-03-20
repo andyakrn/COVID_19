@@ -16,7 +16,7 @@ app.layout = html.Main(
         user_input,
         user_output,
         graph_figures,
-        all_buttons, 
+        all_buttons,
         disclainer_container])
 
 @app.callback(
@@ -30,7 +30,7 @@ def update_figure(radio_item):
     fig = px.choropleth(melted_df,
                         locations='Country/Region',
                         locationmode='country names',
-                        color=melted_df['value'],
+                        color='value',
                         hover_name='Country/Region',
                         title='{} by Country Over Time (Year 2020) <br>(Hover for Country Names)'.format(
                             radio_item),
@@ -76,7 +76,7 @@ def update_figure(selected_country):
      Input('gender', 'value')])
 def return_inputs(age, gender):
     return ''
-    #plug into trained model and output the prediction
+    # plug into trained model and output the prediction
     # return 'I am a {a} year old {g}.'.format(a=age, g=gender)
 
 
