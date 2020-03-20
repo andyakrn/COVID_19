@@ -6,7 +6,7 @@ colors = {
     'page_background': '#181A1C',
     'bar_color': '#b30000'}
 
-font = {'font': 'copperplate'}
+font = {'font': 'Calibri'}
 
 main_app_style = {'backgroundColor': colors['body_background'],
                   'width': '97%',
@@ -46,11 +46,11 @@ radio_item_style = {'border': '.5pt solid #a6a6a6',
                     'font-family': font['font']}
 
 button_style = {'color': colors['text'],
-                'font-size': '14px',
+                'font-size': '11px',
                 'border-radius': '10px',
                 'border': '.5pt solid #a6a6a6',
                 'height': '40px',
-                'width': '170px',
+                'width': '130px',
                 'max-width': '200px',
                 'background-color': colors['header_background'],
                 'box-shadow': '0 8px 16px 0 rgba(0,0,0,2), 0 6px 20px 0 rgba(0,0,0,0.19)',
