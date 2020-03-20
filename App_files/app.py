@@ -12,11 +12,12 @@ app.layout = html.Main(
         headers,
         world_map,
         interactive_graph,
-        graph_figures,
+        prediction_container,
         user_input,
         user_output,
-        all_buttons])
-
+        graph_figures,
+        all_buttons, 
+        disclainer_container])
 
 @app.callback(
     Output('world_map_by_status', 'figure'),
@@ -24,7 +25,7 @@ app.layout = html.Main(
 def update_figure(radio_item):
     max_cases = grouped_df[radio_item].max()
     melt_df = pd.melt(grouped_df, id_vars=['Date', 'Country/Region'], value_vars=[
-                        'Confirmed', 'Recovered', 'Deaths', 'Active'], var_name='Status')
+        'Confirmed', 'Recovered', 'Deaths', 'Active'], var_name='Status')
     melted_df = melt_df.loc[melt_df['Status'] == radio_item]
     fig = px.choropleth(melted_df,
                         locations='Country/Region',
@@ -44,25 +45,25 @@ def update_figure(radio_item):
                       plot_bgcolor=colors['graph_background'])
     return fig
 
-
 @app.callback(
     Output('plot_by_country', 'figure'),
-    [Input('country_dropdown', 'value'),
-     Input('status_radio', 'value')])
-def update_figure(selected_country, radio_item):
+    [Input('country_dropdown', 'value')])
+def update_figure(selected_country):
     filtered_df = grouped_df.loc[grouped_df['Country/Region']
                                  == selected_country]
     melted_df = pd.melt(filtered_df, id_vars='Date', value_vars=[
                         'Confirmed', 'Recovered', 'Deaths', 'Active'], var_name='Status')
-    fig = px.scatter(melted_df.loc[melted_df['Status'] == radio_item],
-                     x='Date',
-                     y='value',
-                     title='Number of {} for {} (Select a different status or country to update)'.format(
-                     radio_item, selected_country),
-                     template='plotly_dark',
-                     #  range_y=[0, int(filtered_df['Confirmed'].max())],
-                     #  range_y=[0, 90000]
-                     )
+    fig = px.line(melted_df,
+                  x='Date',
+                  y='value',
+                  title='Cases in {} (Select a different country to update)'.format(
+                      selected_country),
+                  template='plotly_dark',
+                  color='Status',
+                  color_discrete_map={'Recovered': 'Green',
+                                      'Confirmed': 'Yellow',
+                                      'Active': 'Orange',
+                                      'Deaths': 'Red'})
     fig.update_layout(font={'family': font['font'], 'color': colors['text']},
                       paper_bgcolor=colors['graph_background'],
                       plot_bgcolor=colors['graph_background'])
@@ -72,10 +73,11 @@ def update_figure(selected_country, radio_item):
 @app.callback(
     Output('user-output', 'children'),
     [Input('age', 'value'),
-     Input('gender', 'value'),
-     Input('pre_cond', 'value')])
-def return_inputs(age, gender, pre_cond):
-    return 'I am a {a} year old {g}, with {h} pre-existing health conditions.'.format(a=age, g=gender, h=pre_cond)
+     Input('gender', 'value')])
+def return_inputs(age, gender):
+    return ''
+    #plug into trained model and output the prediction
+    # return 'I am a {a} year old {g}.'.format(a=age, g=gender)
 
 
 if __name__ == '__main__':

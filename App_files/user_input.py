@@ -1,26 +1,66 @@
 from imports import *
 
-app = dash.Dash()
-user_age = dcc.Input(
-    id="age",
-    type="number",
-    debounce=True,
-    placeholder="Please enter your age")
-user_gender = dcc.Dropdown(
-    id="gender",
-    options=[
-        {'label': 'Male', 'value': 'male'},
-        {'label': 'Female', 'value': 'female'},
-        {'label': 'I prefer not to specify', 'value': 'person'}],
-    placeholder='Please select your gender')
-user_health = dcc.Input(
-    id="pre_cond",
-    type="number",
-    debounce=True,
-    placeholder="Number of pre-existing health conditions")
+user_age = dcc.Input(id="age",
+                     type="number",
+                     debounce=True,
+                     placeholder='Age',
+                     style={
+                         'margin-left': '5px',
+                         'width': '95%',
+                         'padding': '0',
+                         'font-family': font['font'],
+                         'font-size': '14px',
+                         'font-color': 'red',
+                         'border-radius': '10px', })
 
+user_gender = dcc.Dropdown(id='gender',
+                           options=[
+                               {'label': 'Male', 'value': 'male'},
+                               {'label': 'Female', 'value': 'female'}],
+                           placeholder='Gender',
+                           style={
+                               'margin-left': '5px',
+                               'width': '95%',
+                               'padding': '0',
+                               'border-radius': '10px',
+                               'font-family': font['font'],
+                               'font-size': '14px',
+                               'font-color': 'red'})
 
 user_input = html.Div(id='user-input',
-                      children=[user_age, user_gender, user_health])
+                      children=[user_age, user_gender],
+                      style={'display': 'flex',
+                             'flex-direction': 'row',
+                             'width': '100%',
+                             'margin-left': '0px',
+                             'margin-right': '0px'})
+
 user_output = html.Div(id='user-output',
                        style={'color': colors['text']})
+
+graph1 = dcc.Graph(
+    id='Graph1',
+    style=small_viz_style,
+    figure=px.bar(grouped_df,
+                  x='Date',
+                  y='Confirmed',
+                  title='Test',
+                  color_discrete_sequence=['red', 'blue'],
+                  template='plotly_dark').update_layout(font={'family': font['font'], 'color': colors['text']},
+                                                        paper_bgcolor=colors['graph_background'],
+                                                        plot_bgcolor=colors['graph_background']))
+graph2 = dcc.Graph(
+    id='Graph2',
+    style=small_viz_style,
+    figure=px.bar(grouped_df,
+                  x='Date',
+                  y='Confirmed',
+                  title='Test',
+                  color_discrete_sequence=['red', 'blue'],
+                  template='plotly_dark').update_layout(font={'family': font['font'], 'color': colors['text']},
+                                                        paper_bgcolor=colors['graph_background'],
+                                                        plot_bgcolor=colors['graph_background']))
+
+graph_figures = html.Figure(
+    style=small_viz_container_style,
+    children=[graph1, graph2])
