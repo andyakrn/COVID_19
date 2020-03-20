@@ -48,7 +48,7 @@ def update_figure(radio_item):
 @app.callback(
     Output('plot_by_country', 'figure'),
     [Input('country_dropdown', 'value')])
-def update_figure(selected_country):
+def update_graph(selected_country):
     filtered_df = grouped_df.loc[grouped_df['Country/Region']
                                  == selected_country]
     melted_df = pd.melt(filtered_df, id_vars='Date', value_vars=[
