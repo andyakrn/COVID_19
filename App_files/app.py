@@ -11,6 +11,7 @@ app.layout = html.Main(
     children=[
         headers,
         world_map,
+        interactive_graph_inputs,
         interactive_graph,
         prediction_container,
         user_input,
@@ -47,15 +48,21 @@ def update_figure(radio_item):
 
 @app.callback(
     Output('plot_by_country', 'figure'),
-    [Input('country_dropdown', 'value')])
-def update_graph(selected_country):
+    [Input('country_dropdown', 'value'),
+     Input('type_of_cases_radio', 'value')])
+def update_graph(selected_country, type_of_cases):
     filtered_df = grouped_df.loc[grouped_df['Country/Region']
                                  == selected_country]
-    melted_df = pd.melt(filtered_df, id_vars='Date', value_vars=[
+    melted_df = pd.melt(filtered_df, id_vars=['Date', 'PopTotal'], value_vars=[
                         'Confirmed', 'Recovered', 'Deaths', 'Active'], var_name='Status')
+    if type_of_cases=='Total':
+        y= 'value'
+    else:
+        melted_df['Per Capita'] = melted_df['value' ]/ melted_df['PopTotal']
+        y = 'Per Capita'
     fig = px.line(melted_df,
                   x='Date',
-                  y='value',
+                  y=y,
                   title='Cases in {} (Select a different country to update)'.format(
                       selected_country),
                   template='plotly_dark',
@@ -66,7 +73,37 @@ def update_graph(selected_country):
                                       'Deaths': 'Red'})
     fig.update_layout(font={'family': font['font'], 'color': colors['text']},
                       paper_bgcolor=colors['graph_background'],
-                      plot_bgcolor=colors['graph_background'])
+                      plot_bgcolor=colors['graph_background'],
+                      yaxis_title= 'Total Cases')
+    return fig
+
+@app.callback(
+    Output('global_plot', 'figure'),
+    [Input('type_of_cases_radio', 'value')])
+def update_graph(type_of_cases):
+    filtered_df = grouped_df.loc[grouped_df['Country/Region']!='Cruise Ship']
+    filtered_df = filtered_df.loc[filtered_df['PopTotal']>10000]
+    filtered_df=filtered_df.groupby('Country/Region').agg('max')
+    if type_of_cases == 'Total':
+        df = filtered_df.sort_values('Confirmed', ascending=False).iloc[:20]
+        df.sort_values('Confirmed', inplace = True)
+        x=df['Confirmed']
+        y=df.index
+    else: 
+        df = filtered_df.sort_values('Confirmed Cases Per 1M', ascending=False).iloc[:20]
+        df.sort_values('Confirmed Cases Per 1M', inplace = True)
+        x=df['Confirmed Cases Per 1M']
+        y=df.index
+    fig = px.scatter(data_frame = df,
+                  x=x,
+                  y=y,
+                  title='Countriese with Highest Confirmed Cases',
+                  template='plotly_dark')
+    fig.update_layout(font={'family': font['font'], 'color': colors['text']},
+                      paper_bgcolor=colors['graph_background'],
+                      plot_bgcolor=colors['graph_background'],
+                      yaxis_title= '')
+    
     return fig
 
 
