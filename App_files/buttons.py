@@ -16,3 +16,4 @@ all_buttons = html.Figure(style={'display': 'flex',
                                  'flex-direction': 'row',
                                  'justify-content': 'space-between'},
                           children=[brian_button, andrei_button, christy_button, chinwe_button])
+#test

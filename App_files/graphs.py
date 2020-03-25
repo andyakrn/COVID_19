@@ -59,3 +59,4 @@ country_comparison_graph = dcc.Graph(id='country_comarison_graph')
 
 country_comparison_figure = html.Figure(style=large_viz_container_style,
                                         children=[type_of_cases_radio_items1, country_choices, country_comparison_graph])
+#test

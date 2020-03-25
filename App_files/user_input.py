@@ -70,3 +70,4 @@ graph_figures = html.Figure(
 #     xgb=pickle.load(f)
 
 # xgb.predict(pd.DataFrame(data={'birth_year':[1959],'sex_male':[1] }))[0]
+#test

@@ -142,7 +142,7 @@ def update_country_comparison(status, selected_countries):
 def return_inputs(age, gender):
     return ''
     # plug into trained model and output the prediction
-    # return 'I am a {a} year old {g}.'.format(a=age, g=gender)
+    # #return 'I am a {a} year old {g}.'.format(a=age, g=gender)
 
 
 if __name__ == '__main__':
