@@ -54,7 +54,8 @@ button_style = {'color': colors['text'],
                 'max-width': '200px',
                 'background-color': colors['header_background'],
                 'box-shadow': '0 8px 16px 0 rgba(0,0,0,2), 0 6px 20px 0 rgba(0,0,0,0.19)',
-                'font-family': font['font']}
+                'font-family': font['font'],
+                'cursor': 'pointer'}
 
 summary_style = {'textAlign': 'left',
                  'backgroundColor': colors['header_background'],
@@ -64,6 +65,7 @@ summary_style = {'textAlign': 'left',
                  'padding-right': '2%',
                  'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 2)',
                  'margin-bottom': '5px',
+                 'margin-top': '0px',
                  'width': '96%',
                  'line-height': '1.7',
                  'font-family': font['font']}
@@ -72,16 +74,8 @@ header_1_style = {'backgroundColor': colors['header_background'],
                   'textAlign': 'center',
                   'color': colors['text'],
                   'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 2)',
-                  'margin-top': '5px',
-                  'width': '100%',
-                  'font-family': font['font']}
-
-header_2_style = {'textAlign': 'center',
-                  'color': colors['text'],
-                  'backgroundColor': colors['header_background'],
-                  'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 2)',
                   'margin-top': '0px',
-                  'margin-bottom': '5px',
+                  'margin-bottom': '0px',
                   'width': '100%',
                   'font-family': font['font']}
 

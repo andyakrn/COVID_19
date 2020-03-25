@@ -9,8 +9,7 @@ from ipywidgets import interact
 from dash.dependencies import Input, Output
 import plotly.express as px
 from style import *
-from buttons import *
-from header_summary import *
+from header_buttons_summary import *
 from data import *
 from world_map import *
 from graphs import *
