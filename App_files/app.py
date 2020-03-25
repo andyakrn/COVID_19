@@ -11,8 +11,8 @@ app.layout = html.Main(
     children=[
         headers,
         world_map,
-        interactive_graph_inputs,
         interactive_graph,
+        graphs4_5,
         prediction_container,
         user_input,
         user_output,

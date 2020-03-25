@@ -11,7 +11,8 @@ country_dropdown = dcc.Dropdown(id='country_dropdown',
                                          for i in countries],
                                 value='China',
                                 placeholder='Select a Country',
-                                style={'font-family': font['font']})
+                                style={'font-family': font['font'],
+                                       })
 
 type_of_cases = ['Total', 'Confirmed Cases Per 1M']
 
@@ -21,13 +22,17 @@ type_of_cases_radio_items = dcc.RadioItems(id='type_of_cases_radio',
                                            value='Total',
                                            style=radio_item_style)
 
+interactive_graph = html.Figure(style={'display': 'flex',
+                                       'flex-direction': 'column',
+                                       'margin-left': '0px',
+                                       'margin-right': '0px',
+                                       'margin-bottom': '0px'},
+                                children=[type_of_cases_radio_items, country_dropdown])
 
-interactive_graph = html.Figure(style=small_viz_container_style,
-                                children=[graph4, graph5])
+graphs4_5 = html.Figure(style={'display': 'flex',
+                               'margin-left': '0px',
+                               'margin-right': '0px',
+                               'margin-top': '0px'},
+                        children=[graph4, graph5])
 
-interactive_graph_inputs = html.Figure(children=[type_of_cases_radio_items, country_dropdown],
-                                       style={'display': 'flex',
-                                              'flex-direction': 'column',
-                                              'width': '100%',
-                                              'margin-left': '0px',
-                                              'margin-right': '0px'})
+all_graphs = html.Figure(children=[interactive_graph, graphs4_5])

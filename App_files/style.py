@@ -42,7 +42,8 @@ radio_item_style = {'border': '.5pt solid #a6a6a6',
                     'fontsize': 20,
                     'color': colors['text'],
                     'backgroundColor': colors['header_background'],
-                    'font-family': font['font']}
+                    'font-family': font['font'], 
+                    }
 
 button_style = {'color': colors['text'],
                 'font-size': '11px',
