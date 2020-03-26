@@ -14,4 +14,3 @@ world_map = html.Figure(
     style=large_viz_container_style,
     children=[map_status_radio_items, world_map_by_status])
 
-#test

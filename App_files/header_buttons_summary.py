@@ -17,7 +17,7 @@ christy_button = html.A(html.Button('Christy Liner, MBA', style=button_style),
 
 chinwe_button = html.A(html.Button('Chinwe Egwim, BA',
                                    style=button_style,
-                                  ),
+                                   ),
                        href='https://www.linkedin.com/in/chinwe-egwim752/',
                        target='_blank',
                        title='Linked In - Chinwe Egwim')
@@ -30,10 +30,29 @@ all_buttons = html.Figure(style={'display': 'flex',
 header1 = html.H1(children='COVID-19 Coronavirus Dashboard',
                   style=header_1_style)
 
-summary1 = html.P(children='Coronaviruses are a large family of viruses that are common in people and many different species of animals, including camels, cattle, cats, and bats. Rarely, animal coronaviruses can infect people and then spread between people such as with MERS-CoV, SARS-CoV, and now with this new virus (named SARS-CoV-2).',
+summary_link = html.A('(Source).',
+                      href='https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic',
+                      target='_blank')
+
+summary1 = html.P(children=['''
+The 2019–20 coronavirus pandemic is an ongoing pandemic of coronavirus disease 2019 (COVID-19), 
+caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). The outbreak was first 
+identified in Wuhan, Hubei, China, in December 2019, and was recognized as a pandemic by the 
+World Health Organization (WHO) on 11 March 2020 
+''', summary_link],
+
                   style=summary_style)
 
-summary2 = html.P(children='The SARS-CoV-2 virus is a betacoronavirus, like MERS-CoV and SARS-CoV.  All three of these viruses have their origins in bats. The sequences from U.S. patients are similar to the one that China initially posted, suggesting a likely single, recent emergence of this virus from an animal reservoir. (Source: CDC)',
+
+summary2 = html.P(children='''
+The purpose of this dashboard is a visualization of the dynamics of the virus spreading around the world. 
+The map can show the distribution of case by country at s selected date, as well as number of active, 
+recovered and deceased cases. The plot below the map shows number of case for selected country vs time.  
+Also, this plot allows comparing the dynamics of the spread between two selected countries. 
+Bar plot shows the top 10 countries with the highest number of cases on the current date.  
+A simple model (will be implemented later when more data become available) predicts a probability 
+of survival. 
+''',
                   style=summary_style)
 
 headers = html.Div(style={'display': 'flex',
@@ -53,4 +72,3 @@ disclaimer = html.P(children='*This does not take into consideration those that 
 disclainer_container = html.Div(style={'display': 'flex',
                                        'flex-direction': 'column'},
                                 children=[disclaimer])
-#test
