@@ -6,4 +6,4 @@ The purpose of this project is to create a dashboard that visualizes the virus's
 
 # In Progress
 
-When more data becomes available, we will implement a simple model that predicts one's probabblity of survival using demographic features (e.g., age, gender).
+When more data becomes available, we will implement a simple model that predicts one's probablity of survival using demographic features (e.g., age, gender).
