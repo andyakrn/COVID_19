@@ -2,7 +2,7 @@ On March 11, 2019, The World Health Organization (WHO) recognized COVID-19 as a 
 
 # Dashboard
 
-The purpose of this project is to create a dashboard that visualizes the virus' spread across the globe. It features an animated map that illustrates the progression of cases per country over time, along with a plot that allows the user to compare the growth rates of cases between two countries. There is also a bar plot showing the amount of cases for the top 10 countries.
+The purpose of this project is to create a dashboard that visualizes the virus' spread across the globe. It features an animated map that illustrates the progression of cases over time, along with a plot that allows the user to compare the growth rates of cases between two countries. There is also a bar plot showing the amount of cases for the top 10 countries.
 
 # In Progress
 
