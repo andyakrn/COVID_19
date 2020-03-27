@@ -30,10 +30,12 @@ large_viz_style = {'margin-right': '5px',
 small_viz_container_style = {'display': 'flex',
                              'flex-direction': 'row',
                              'margin-left': '0px',
-                             'margin-right': '0px'}
+                             'margin-right': '0px',
+                            }
 
 small_viz_style = {'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 2)',
                    'width': '50%',
+                   
                    'padding': '0',
                    'border': '.5pt solid #a6a6a6',
                    'font-color': colors['text']}
@@ -42,7 +44,7 @@ radio_item_style = {'border': '.5pt solid #a6a6a6',
                     'fontsize': 20,
                     'color': colors['text'],
                     'backgroundColor': colors['header_background'],
-                    'font-family': font['font'], 
+                    'font-family': font['font'],
                     }
 
 button_style = {'color': colors['text'],
@@ -91,3 +93,13 @@ prediction_style = {'textAlign': 'left',
                     'line-height': '1.7',
                     'font-family': font['font'],
                     'border': '.5pt solid #a6a6a6'}
+
+interactive_graph_style = {'display': 'flex',
+                           'flex-direction': 'column',
+                           'margin-left': '0px',
+                           'margin-right': '0px',
+                           'margin-bottom': '0px'}
+
+button_container_style = {'display': 'flex',
+                          'flex-direction': 'row',
+                          'justify-content': 'space-between'}

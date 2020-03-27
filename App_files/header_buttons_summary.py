@@ -30,28 +30,27 @@ all_buttons = html.Figure(style={'display': 'flex',
 header1 = html.H1(children='COVID-19 Coronavirus Dashboard',
                   style=header_1_style)
 
-summary_link = html.A('(Source).',
+summary_link = html.A('(Source)',
                       href='https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic',
                       target='_blank')
 
 summary1 = html.P(children=['''
-The 2019–20 coronavirus pandemic is an ongoing pandemic of coronavirus disease 2019 (COVID-19), 
-caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). The outbreak was first 
-identified in Wuhan, Hubei, China, in December 2019, and was recognized as a pandemic by the 
-World Health Organization (WHO) on 11 March 2020 
+On March 11, 2019, The World Health Organization (WHO) recognized COVID-19 as a pandemic. 
+The coronavirus disease 2019 (COVID-19) is a respiratory illness caused by severe acute respiratory 
+syndrome coronavirus 2 (SARS-CoV-2). Since the first outbreak in December 2019 in Wuhan, China, 
+more than 494,000 cases have been reported in over 190 countries and territories.
 ''', summary_link],
 
                   style=summary_style)
 
 
 summary2 = html.P(children='''
-The purpose of this dashboard is a visualization of the dynamics of the virus spreading around the world. 
-The map can show the distribution of case by country at s selected date, as well as number of active, 
-recovered and deceased cases. The plot below the map shows number of case for selected country vs time.  
-Also, this plot allows comparing the dynamics of the spread between two selected countries. 
-Bar plot shows the top 10 countries with the highest number of cases on the current date.  
-A simple model (will be implemented later when more data become available) predicts a probability 
-of survival. 
+The purpose of this project is to create a dashboard that visualizes the virus' spread across 
+the globe. It features an animated map that illustrates the progression of cases over time, 
+along with a plot that allows the user to compare the growth rates of cases between two countries. 
+There is also a bar plot showing the amount of cases for the top 10 countries. When more data becomes 
+available, we will implement a simple model that predicts one's probablity of survival using demographic 
+features (e.g., age, gender).
 ''',
                   style=summary_style)
 
