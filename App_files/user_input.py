@@ -64,3 +64,10 @@ graph2 = dcc.Graph(
 graph_figures = html.Figure(
     style=small_viz_container_style,
     children=[graph1, graph2])
+
+
+# with open('model_xgboost_V_0_90.pickle','rb') as f: 
+#     xgb=pickle.load(f)
+
+# xgb.predict(pd.DataFrame(data={'birth_year':[1959],'sex_male':[1] }))[0]
+#test
