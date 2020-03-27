@@ -1,4 +1,4 @@
-On March 11, 2019, The World Health Organization (WHO) recognized COVID-19 as a [pandemic](https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic). The coronavirus disease 2019 (COVID-19), is a respiratory illness caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). Since the first outbreak in December 2019 in Wuhan, China, more than 494,000 cases have been reported in over 190 countries and territories.
+On March 11, 2019, The World Health Organization (WHO) recognized COVID-19 as a [pandemic](https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic). The coronavirus disease 2019 (COVID-19) is a respiratory illness caused by severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2). Since the first outbreak in December 2019 in Wuhan, China, more than 494,000 cases have been reported in over 190 countries and territories.
 
 # Dashboard
 
