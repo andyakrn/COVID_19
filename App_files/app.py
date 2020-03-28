@@ -153,13 +153,26 @@ def update_country_comparison(status, selected_countries):
 
 @app.callback(
     Output('user-output', 'children'),
-    [Input('age', 'value'),
-     Input('gender', 'value')])
-def return_inputs(age, gender):
-    return ''
-    # plug into trained model and output the prediction
-    # #return 'I am a {a} year old {g}.'.format(a=age, g=gender)
-
+    [Input('submit-button', 'n_clicks')],
+     [State('age', 'value'),
+     State('gender', 'value')])
+def return_inputs(n_clicks, age, gender):
+    if n_clicks==0:
+        return 'RESULT: Enter age and gender for likelihood of survival.'
+    if n_clicks>0:
+        if age == None or gender == None:
+            return 'RESULT: Enter age and gender for likelihood of survival.'
+        elif age != None and gender != None:
+            if gender=='Female':
+                gender_numeric=0
+            else:
+                gender_numeric=1
+            prediction = rfc_model.predict([[age, gender_numeric]])
+            if prediction == 1: 
+                prognosis = 'Survival is likely.'
+            else: 
+                prognosis = 'Severe complications are likely.'
+            return 'RESULT: Prognosis for a {} year old {}: {}'.format(age, gender, prognosis)
 
 if __name__ == '__main__':
     app.run_server(debug=True)

@@ -2,6 +2,8 @@ from imports import *
 
 user_age = dcc.Input(id="age",
                      type="number",
+                     min=0,
+                     max=120,
                      debounce=True,
                      placeholder='Age',
                      style={
@@ -27,8 +29,14 @@ user_gender = dcc.Dropdown(id='gender',
                                'font-size': '14px',
                                'font-color': 'red'})
 
+submit_button = html.Button(id='submit-button',
+                            n_clicks=0,
+                            children='Submit',
+                            style={'border-radius': '10px',
+                            'font-family': font['font']})
+
 user_input = html.Div(id='user-input',
-                      children=[user_age, user_gender],
+                      children=[user_age, user_gender, submit_button],
                       style={'display': 'flex',
                              'flex-direction': 'row',
                              'width': '100%',
@@ -36,7 +44,10 @@ user_input = html.Div(id='user-input',
                              'margin-right': '0px'})
 
 user_output = html.Div(id='user-output',
-                       style={'color': colors['text']})
+                       style={'color': colors['text'],
+                              'border': '.5pt solid #a6a6a6',
+                              'margin-top': '5px',
+                              'font-family': font['font']})
 
 graph1 = dcc.Graph(
     id='Graph1',
@@ -64,10 +75,3 @@ graph2 = dcc.Graph(
 graph_figures = html.Figure(
     style=small_viz_container_style,
     children=[graph1, graph2])
-
-
-# with open('model_xgboost_V_0_90.pickle','rb') as f: 
-#     xgb=pickle.load(f)
-
-# xgb.predict(pd.DataFrame(data={'birth_year':[1959],'sex_male':[1] }))[0]
-#test
