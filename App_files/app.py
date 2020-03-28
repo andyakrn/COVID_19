@@ -80,8 +80,7 @@ def update_graph(selected_country, type_of_cases):
                                       'Confirmed': 'Yellow',
                                       'Active': 'Orange',
                                       'Deaths': 'Red'},
-                  width=422,
-                  height=300)
+                 height=288)
     fig.update_layout(font={'family': font['font'], 'color': colors['text']},
                       paper_bgcolor=colors['graph_background'],
                       plot_bgcolor=colors['graph_background'],
@@ -113,8 +112,7 @@ def update_graph(type_of_cases):
                  title='Countriese with Highest Confirmed Cases',
                  template='plotly_dark',
                  orientation='h',
-                 width=422,
-                 height=300)
+                 height=288)
     fig.update_layout(font={'family': font['font'], 'color': colors['text']},
                       paper_bgcolor=colors['graph_background'],
                       plot_bgcolor=colors['graph_background'],
