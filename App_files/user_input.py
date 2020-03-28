@@ -55,8 +55,8 @@ graph1 = dcc.Graph(
     figure=px.bar(grouped_df,
                   x='Date',
                   y='Confirmed',
-                  title='Test',
-                  color_discrete_sequence=['red', 'blue'],
+                  title='Global Confirmed Cases',
+                  color_discrete_sequence=['red'],
                   template='plotly_dark').update_layout(font={'family': font['font'], 'color': colors['text']},
                                                         paper_bgcolor=colors['graph_background'],
                                                         plot_bgcolor=colors['graph_background']))
@@ -65,9 +65,9 @@ graph2 = dcc.Graph(
     style=small_viz_style,
     figure=px.bar(grouped_df,
                   x='Date',
-                  y='Confirmed',
-                  title='Test',
-                  color_discrete_sequence=['red', 'blue'],
+                  y='Active',
+                  title='Global Active Cases',
+                  color_discrete_sequence=['yellow'],
                   template='plotly_dark').update_layout(font={'family': font['font'], 'color': colors['text']},
                                                         paper_bgcolor=colors['graph_background'],
                                                         plot_bgcolor=colors['graph_background']))

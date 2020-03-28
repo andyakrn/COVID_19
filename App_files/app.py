@@ -11,13 +11,13 @@ app.layout = html.Main(
     children=[
         headers,
         world_map,
+        graph_figures,
         interactive_graph,
         graphs4_5,
         country_comparison_figure,
         prediction_container,
         user_input,
         user_output,
-        graph_figures,
         disclainer_container])
 
 @app.callback(
@@ -80,7 +80,7 @@ def update_graph(selected_country, type_of_cases):
                                       'Confirmed': 'Yellow',
                                       'Active': 'Orange',
                                       'Deaths': 'Red'},
-                 height=288)
+                 height=350)
     fig.update_layout(font={'family': font['font'], 'color': colors['text']},
                       paper_bgcolor=colors['graph_background'],
                       plot_bgcolor=colors['graph_background'],
@@ -109,10 +109,10 @@ def update_graph(type_of_cases):
     fig = px.bar(data_frame=df,
                  x=x,
                  y=y,
-                 title='Countriese with Highest Confirmed Cases',
+                 title='Countries with Highest Confirmed Cases',
                  template='plotly_dark',
                  orientation='h',
-                 height=288)
+                 height=350)
     fig.update_layout(font={'family': font['font'], 'color': colors['text']},
                       paper_bgcolor=colors['graph_background'],
                       plot_bgcolor=colors['graph_background'],
