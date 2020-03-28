@@ -7,8 +7,10 @@ app.title = 'COVID-19 Visualization Dashboard'
 server = app.server
 
 app.layout = html.Main(
+
     style=main_app_style,
     children=[
+        html.Img(src=app.get_asset_url('Thumbnail.png')),
         headers,
         world_map,
         graph_figures,

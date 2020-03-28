@@ -12,7 +12,8 @@ main_app_style = {'backgroundColor': colors['body_background'],
                   'width': '97%',
                   'padding': '10px',
                   'display': 'flex',
-                  'flex-direction': 'column'}
+                  'flex-direction': 'column',
+                  }
 
 large_viz_container_style = {'display': 'flex',
                              'flex-direction': 'column',
@@ -31,11 +32,11 @@ small_viz_container_style = {'display': 'flex',
                              'flex-direction': 'row',
                              'margin-left': '0px',
                              'margin-right': '0px',
-                            }
+                             }
 
 small_viz_style = {'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 2)',
                    'width': '50%',
-                   
+
                    'padding': '0',
                    'border': '.5pt solid #a6a6a6',
                    'font-color': colors['text']}

@@ -49,7 +49,7 @@ The purpose of this project is to create a dashboard that visualizes the virus' 
 the globe. It features an animated map that illustrates the progression of cases over time, 
 along with a plot that allows the user to compare the growth rates of cases between two countries. 
 There is also a bar plot showing the amount of cases for the top 10 countries. When more data becomes 
-available, we will implement a simple model that predicts one's probablity of survival using demographic 
+available, we will implement a simple model that predicts one's probability of survival using demographic 
 features (e.g., age, gender).
 ''',
                   style=summary_style)
