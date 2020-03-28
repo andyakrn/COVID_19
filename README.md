@@ -7,3 +7,8 @@ The purpose of this project is to create a [dashboard](https://coviddash.herokua
 # In Progress
 
 When more data becomes available, we will implement a simple model that predicts one's probablity of survival using demographic features (e.g., age, gender).
+
+# Data
+
+[2019 Novel Coronavirus COVID-19 (2019-nCoV) Data Repository by Johns Hopkins CSSE](https://github.com/CSSEGISandData/COVID-19)
+[Population Data](https://population.un.org/wpp/DataQuery/)
