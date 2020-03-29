@@ -79,9 +79,7 @@ def update_graph(selected_country, type_of_cases):
                   color_discrete_map={'Recovered': 'Green',
                                       'Confirmed': 'Yellow',
                                       'Active': 'Orange',
-                                      'Deaths': 'Red'},
-                  width=422,
-                  height=300)
+                                      'Deaths': 'Red'})
     fig.update_layout(font={'family': font['font'], 'color': colors['text']},
                       paper_bgcolor=colors['graph_background'],
                       plot_bgcolor=colors['graph_background'],
@@ -112,9 +110,7 @@ def update_graph(type_of_cases):
                  y=y,
                  title='Countriese with Highest Confirmed Cases',
                  template='plotly_dark',
-                 orientation='h',
-                 width=422,
-                 height=300)
+                 orientation='h')
     fig.update_layout(font={'family': font['font'], 'color': colors['text']},
                       paper_bgcolor=colors['graph_background'],
                       plot_bgcolor=colors['graph_background'],
@@ -153,12 +149,26 @@ def update_country_comparison(status, selected_countries):
     return fig
 
 
+from sklearn.ensemble import RandomForestClassifier
+with open('../model_RFC_sklearn_V_0_22.pickle','rb') as f:
+    rfc=pickle.load(f)
+    
+
+
 @app.callback(
     Output('user-output', 'children'),
     [Input('age', 'value'),
      Input('gender', 'value')])
 def return_inputs(age, gender):
-    return ''
+    if gender == 'Male':
+        gender_code=1
+    else:
+        gender_code=0
+    dob=2020 - age
+    df_test = pd.DataFrame(data={'birth_year':[dob],'sex_male':[1] })
+    pred = rfc.predict(df_test)[0]
+    
+    return 'I am a {a} year old {g}. {p}'.format(a=age, g=gender,p=pred)
     # plug into trained model and output the prediction
     # #return 'I am a {a} year old {g}.'.format(a=age, g=gender)
 
