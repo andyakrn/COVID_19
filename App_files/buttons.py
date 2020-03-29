@@ -1,6 +1,6 @@
 from imports import *
 
-brian_button = html.A(html.Button('Brian Kosiadi, BS', style=button_style),
+brian_button = html.A(html.Button('Brian Kosiadi, BA', style=button_style),
                       href='https://www.linkedin.com/in/brian-kosiadi/')
 
 andrei_button = html.A(html.Button('Andrei Zholud, PhD', style=button_style),
