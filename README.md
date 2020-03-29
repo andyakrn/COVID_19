@@ -6,7 +6,7 @@ The purpose of this project is to create a [dashboard](https://coviddash.herokua
 
 # In Progress
 
-When more data becomes available, we will implement a simple model that predicts one's probablity of survival using demographic features (e.g., age, gender).
+When more data becomes available, we will implement a simple model that predicts one's probability of survival using demographic features (e.g., age, gender).
 
 # Data
 
