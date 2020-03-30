@@ -39,7 +39,7 @@ def update_figure(radio_item):
                                   locationmode='country names',
                                   color='value',
                                   hover_name='Country/Region',
-                                  title='{} by Country Over Time (Year 2020) <br>(Hover for Country Names)'.format(
+                                  title='{} by Country Over Time<br>(Hover for Country Names)'.format(
                                       radio_item),
                                   color_continuous_scale=['green', 'yellow',
                                                           'orange', 'orangered', 'red'],

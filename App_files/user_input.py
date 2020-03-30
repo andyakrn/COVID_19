@@ -49,10 +49,14 @@ user_output = html.Div(id='user-output',
                               'margin-top': '5px',
                               'font-family': font['font']})
 
+graph_df = grouped_df.groupby('Date').agg('sum').reset_index()
+graph_df['Date'] = pd.to_datetime(graph_df['Date'])
+graph_df = graph_df.sort_values('Date')
+
 graph1 = dcc.Graph(
     id='Graph1',
     style=small_viz_style,
-    figure=px.bar(grouped_df,
+    figure=px.bar(graph_df,
                   x='Date',
                   y='Confirmed',
                   title='Global Confirmed Cases',
@@ -63,7 +67,7 @@ graph1 = dcc.Graph(
 graph2 = dcc.Graph(
     id='Graph2',
     style=small_viz_style,
-    figure=px.bar(grouped_df,
+    figure=px.bar(graph_df,
                   x='Date',
                   y='Active',
                   title='Global Active Cases',
