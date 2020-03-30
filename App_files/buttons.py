@@ -1,6 +1,6 @@
 from imports import *
 
-brian_button = html.A(html.Button('Brian Kosiadi, BS', style=button_style),
+brian_button = html.A(html.Button('Brian Kosiadi, BA', style=button_style),
                       href='https://www.linkedin.com/in/brian-kosiadi/')
 
 andrei_button = html.A(html.Button('Andrei Zholud, PhD', style=button_style),
@@ -12,7 +12,5 @@ christy_button = html.A(html.Button('Christy Liner, MBA', style=button_style),
 chinwe_button = html.A(html.Button('Chinwe Egwim, BA', style=button_style),
                        href='https://www.linkedin.com/in/chinwe-egwim752/')
 
-all_buttons = html.Figure(style={'display': 'flex',
-                                 'flex-direction': 'row',
-                                 'justify-content': 'space-between'},
+all_buttons = html.Figure(style=button_container_style,
                           children=[brian_button, andrei_button, christy_button, chinwe_button])
