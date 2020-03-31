@@ -10,7 +10,6 @@ app.layout = html.Main(
 
     style=main_app_style,
     children=[
-        html.Img(src='https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSqr00VhzlBAcGywC5yvW5PjQk9UM1fuP46ypv7THkW6d2luTIh'),
         headers,
         world_map,
         graph_figures,

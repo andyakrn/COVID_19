@@ -28,7 +28,8 @@ all_buttons = html.Figure(style={'display': 'flex',
                           children=[brian_button, andrei_button, christy_button, chinwe_button])
 
 header1 = html.H1(children='COVID-19 Coronavirus Dashboard',
-                  style=header_1_style)
+                  style=header_1_style,
+                  )
 
 summary_link = html.A('(Source)',
                       href='https://en.wikipedia.org/wiki/2019%E2%80%9320_coronavirus_pandemic',
