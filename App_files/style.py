@@ -6,7 +6,7 @@ colors = {
     'page_background': '#181A1C',
     'bar_color': '#b30000'}
 
-font = {'font': 'Optima'}
+font = {'font': 'sans-serif'}
 
 main_app_style = {'backgroundColor': colors['body_background'],
                   'width': '97%',

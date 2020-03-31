@@ -19,9 +19,10 @@ app.layout = html.Main(
         new_cases_figure,
         survival_figure,
         prediction_container,
-        user_input,
-        user_output,
-        disclainer_container])
+#        user_input,
+#        user_output,
+#        disclainer_container
+    ])
 
 @app.callback(
     Output('world_map_by_status', 'figure'),
@@ -173,28 +174,28 @@ def new_cases_by_country(country):
     fig.update_xaxes(tickangle=45)
     return fig
 
-@app.callback(
-    Output('user-output', 'children'),
-    [Input('submit-button', 'n_clicks')],
-     [State('age', 'value'),
-     State('gender', 'value')])
-def return_inputs(n_clicks, age, gender):
-    if n_clicks==0:
-        return 'RESULT: Enter age and gender for likelihood of survival.'
-    if n_clicks>0:
-        if age == None or gender == None:
-            return 'RESULT: Enter age and gender for likelihood of survival.'
-        elif age != None and gender != None:
-            if gender=='Female':
-                gender_numeric=0
-            else:
-                gender_numeric=1
-            prediction = rfc_model.predict([[age, gender_numeric]])
-            if prediction == 1: 
-                prognosis = 'Survival is likely.'
-            else: 
-                prognosis = 'Severe complications are likely.'
-            return 'RESULT: Prognosis for a {} year old {}: {}'.format(age, gender, prognosis)
+# @app.callback(
+#     Output('user-output', 'children'),
+#     [Input('submit-button', 'n_clicks')],
+#      [State('age', 'value'),
+#      State('gender', 'value')])
+# def return_inputs(n_clicks, age, gender):
+#     if n_clicks==0:
+#         return 'RESULT: Enter age and gender for likelihood of survival.'
+#     if n_clicks>0:
+#         if age == None or gender == None:
+#             return 'RESULT: Enter age and gender for likelihood of survival.'
+#         elif age != None and gender != None:
+#             if gender=='Female':
+#                 gender_numeric=0
+#             else:
+#                 gender_numeric=1
+#             prediction = rfc_model.predict([[age, gender_numeric]])
+#             if prediction == 1: 
+#                 prognosis = 'Survival is likely.'
+#             else: 
+#                 prognosis = 'Severe complications are likely.'
+#             return 'RESULT: Prognosis for a {} year old {}: {}'.format(age, gender, prognosis)
 
 if __name__ == '__main__':
     app.run_server(debug=True)
