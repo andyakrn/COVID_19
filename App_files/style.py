@@ -36,7 +36,6 @@ small_viz_container_style = {'display': 'flex',
 
 small_viz_style = {'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 2)',
                    'width': '50%',
-
                    'padding': '0',
                    'border': '.5pt solid #a6a6a6',
                    'font-color': colors['text']}

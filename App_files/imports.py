@@ -16,4 +16,6 @@ from data import *
 from world_map import *
 from graphs import *
 from user_input import *
+from new_cases import *
+from survival_rates import *
 import pickle

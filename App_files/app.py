@@ -17,6 +17,8 @@ app.layout = html.Main(
         interactive_graph,
         graphs4_5,
         country_comparison_figure,
+        new_cases_figure,
+        survival_figure,
         prediction_container,
         user_input,
         user_output,
@@ -87,6 +89,7 @@ def update_graph(selected_country, type_of_cases):
                       paper_bgcolor=colors['graph_background'],
                       plot_bgcolor=colors['graph_background'],
                       yaxis_title='Total Cases')
+    fig.update_xaxes(tickangle=45)
     return fig
 
 
@@ -152,6 +155,24 @@ def update_country_comparison(status, selected_countries):
     fig.update_xaxes(tickangle=45)
     return fig
 
+@app.callback(
+    Output('new_graph2', 'figure'),
+    [Input('country_dropdown2', 'value')])
+def new_cases_by_country(country):
+    country_df = grouped_df.loc[grouped_df['Country/Region']==country]
+    country_df['Yesterday_Cases'] = country_df['Confirmed'].shift(1)
+    country_df['New_Cases'] = country_df['Confirmed'] - country_df['Yesterday_Cases']
+    fig = px.bar(country_df,
+                        x='Date',
+                        y='New_Cases',
+                        template='plotly_dark',
+                        title='New Cases by Day in {}'.format(country),
+                        color_discrete_sequence = ['red'])
+    fig.update_layout(font={'family': font['font'], 'color': colors['text']},
+                      paper_bgcolor=colors['graph_background'],
+                      plot_bgcolor=colors['graph_background'])
+    fig.update_xaxes(tickangle=45)
+    return fig
 
 @app.callback(
     Output('user-output', 'children'),
