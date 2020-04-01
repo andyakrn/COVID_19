@@ -7,7 +7,6 @@ app.title = 'COVID-19 Visualization Dashboard'
 server = app.server
 
 app.layout = html.Main(
-
     style=main_app_style,
     children=[
         headers,
@@ -18,12 +17,12 @@ app.layout = html.Main(
         country_comparison_figure,
         new_cases_figure])
 
+#Callbacks
 update_world_map(app)
-updated_country_confirmed_million(app)
-update_countries_highest_confirmed_cases(app)
+total_and_cases_per_million_country(app)
+total_and_cases_per_million_highest_cases(app)
 status_comparison_graph(app)
 new_cases(app)
-
 
 if __name__ == '__main__':
     app.run_server(debug=True)

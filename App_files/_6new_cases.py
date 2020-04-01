@@ -63,5 +63,5 @@ def new_cases(app):
         fig.update_layout(font={'family': font['font'], 'color': colors['text']},
                         paper_bgcolor=colors['graph_background'],
                         plot_bgcolor=colors['graph_background'])
-        fig.update_xaxes(tickangle=45)
+        fig.update_xaxes(tickangle=45, dtick=7)
         return fig

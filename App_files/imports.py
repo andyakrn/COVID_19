@@ -1,24 +1,21 @@
+import pickle
+import pandas as pd
+
+grouped_df = pd.read_pickle('../Data/COVID_Hopkins_df.pickle')
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
-import pandas as pd
+from dash.dependencies import Input, Output, State
+
 import plotly.graph_objects as go
 import plotly.express as px
 from ipywidgets import interact
-import pickle
 
-
-from dash.dependencies import Input, Output, State
-import plotly.express as px
 from style import *
-from header_buttons_summary import *
-from data import *
-from world_map import *
-from graphs import *
-from new_cases import *
-from confirmed_active_graphs import *
-from country_comparison import *
-
-
-from total_and_cases_per_million import *
-import pickle
+from _1header_buttons_summary import *
+from _2world_map import *
+from _3confirmed_active_graphs import *
+from _4total_and_cases_per_million import *
+from _5country_comparison import *
+from _6new_cases import *

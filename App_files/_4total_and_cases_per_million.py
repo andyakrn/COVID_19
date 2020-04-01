@@ -30,6 +30,24 @@ total_and_highest_graphs = html.Figure(style={'display': 'flex',
                                'margin-top': '0px'},
                         children=[plot_by_country, global_plot])
 
+countries = grouped_df['Country/Region'].unique()
+
+graph4 = dcc.Graph(id='plot_by_country', style=small_viz_style)
+
+graph5 = dcc.Graph(id='global_plot', style=small_viz_style)
+
+
+interactive_graph = html.Figure(style=interactive_graph_style,
+                                children=[type_of_cases_radio_items, country_dropdown])
+
+graphs4_5 = html.Figure(style={'display': 'flex',
+                               'margin-left': '0px',
+                               'margin-right': '0px',
+                               'margin-top': '0px'},
+                        children=[graph4, graph5])
+
+all_graphs = html.Figure(children=[interactive_graph, graphs4_5])
+
 def total_and_cases_per_million_country(app):
        @app.callback(
        Output('plot_by_country', 'figure'),
