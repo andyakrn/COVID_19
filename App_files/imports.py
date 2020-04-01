@@ -15,10 +15,10 @@ from header_buttons_summary import *
 from data import *
 from world_map import *
 from graphs import *
-from user_input import *
 from new_cases import *
 from confirmed_active_graphs import *
 from country_comparison import *
+
 
 from total_and_cases_per_million import *
 import pickle

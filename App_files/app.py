@@ -12,7 +12,7 @@ app.layout = html.Main(
     children=[
         headers,
         world_map,
-        graph_figures,
+        confirmed_active_graphs,
         interactive_graph,
         graphs4_5,
         country_comparison_figure,
