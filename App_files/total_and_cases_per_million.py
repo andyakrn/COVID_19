@@ -99,4 +99,8 @@ def total_and_cases_per_million_highest_cases(app):
                                    plot_bgcolor=colors['graph_background'],
                                    yaxis_title='')
 
+<<<<<<< HEAD
               return fig 
+=======
+              return fig
+>>>>>>> d77821be8e549eb3c49c34d88f6a3fadc695fca0
