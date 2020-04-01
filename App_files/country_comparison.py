@@ -23,11 +23,13 @@ country_comparison_graph = dcc.Graph(id='country_comparison_graph')
 country_comparison_figure = html.Figure(style=large_viz_container_style,
                                         children=[type_of_cases_radio_items1, country_choices, country_comparison_graph])
 
-def country_comparison_callback(app):
+
+
+def status_comparison_graph(app):
     @app.callback(
     Output('country_comparison_graph', 'figure'),
     [Input('type_of_cases_radio1', 'value'),
-     Input('country_dropdown1', 'value')])
+    Input('country_dropdown1', 'value')])
     def update_country_comparison(status, selected_countries):
         filtered_df = pd.DataFrame()
         for country in selected_countries:
@@ -50,5 +52,5 @@ def country_comparison_callback(app):
                         paper_bgcolor=colors['graph_background'],
                         plot_bgcolor=colors['graph_background'],
                         yaxis_title='Total Cases')
-        fig.update_xaxes(tickangle=45, dtick=7)
+        fig.update_xaxes(tickangle=45)
         return fig
