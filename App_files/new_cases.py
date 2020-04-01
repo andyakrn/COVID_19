@@ -7,32 +7,11 @@ country_dropdown2 = dcc.Dropdown(id='country_dropdown2',
                                  placeholder='Select a Country',
                                  style={'font-family': font['font']})
 
-# grouped_df.sort_values('Datetime', inplace=True)
-# global_total_df = grouped_df.groupby('Datetime').agg('sum')
-# global_total_df['Yesterday_Cases'] = global_total_df['Confirmed'].shift(1)
-# global_total_df['New_Cases'] = global_total_df['Confirmed'] - \
-#     global_total_df['Yesterday_Cases']
+hardest_hit_countries = list(grouped_df.groupby('Country/Region').agg('max')['Confirmed'].sort_values(ascending=False)[0:7].index)
 
-# new_cases_fig1 = px.bar(global_total_df,
-#                         x=global_total_df.index,
-#                         y='New_Cases',
-#                         template='plotly_dark',
-#                         title='Global New Cases by Day',
-#                         color_discrete_sequence = ['red'])
+new_log_cases = grouped_df.loc[grouped_df['Country/Region'].isin(hardest_hit_countries)]
 
-# new_cases_fig1.update_layout(font={'family': font['font'],
-#                                    'color': colors['text']},
-#                              paper_bgcolor=colors['graph_background'],
-#                              plot_bgcolor=colors['graph_background'],
-#                              yaxis_title='New Cases',
-#                              xaxis_title='Date',
-#                              )
-
-# new_cases_figure1 = dcc.Graph(id='new_graph1',
-#                               style=small_viz_style,
-#                               figure=new_cases_fig1)
-
-new_cases_fig1 = px.line(grouped_df,
+new_cases_fig1 = px.line(new_log_cases,
                         x='Confirmed',
                         y='New Weekly Cases',
                         log_x='True',
@@ -48,6 +27,10 @@ new_cases_fig1.update_layout(font={'family': font['font'],
                              plot_bgcolor=colors['graph_background'],
                              )
 
+new_cases_fig1.update_xaxes(range=[1,6])
+new_cases_fig1.update_yaxes(range=[1,6])
+new_cases_fig1.update_yaxes(tickvals=[10, 100, 1000, 10000, 100000, 1000000])
+
 new_cases_figure1 = dcc.Graph(id='new_graph1',
                               style=small_viz_style,
                               figure=new_cases_fig1)
@@ -62,3 +45,23 @@ graph_figures2 = html.Figure(
 new_cases_figure = html.Figure(style=large_viz_container_style,
                                children=[country_dropdown2,
                                          graph_figures2])
+
+def new_cases(app):
+    @app.callback(
+    Output('new_graph2', 'figure'),
+    [Input('country_dropdown2', 'value')])
+    def new_cases_by_country(country):
+        country_df = grouped_df.loc[grouped_df['Country/Region']==country]
+        country_df['Yesterday_Cases'] = country_df['Confirmed'].shift(1)
+        country_df['New_Cases'] = country_df['Confirmed'] - country_df['Yesterday_Cases']
+        fig = px.bar(country_df,
+                            x='Date',
+                            y='New_Cases',
+                            template='plotly_dark',
+                            title='New Cases by Day in {}'.format(country),
+                            color_discrete_sequence = ['red'])
+        fig.update_layout(font={'family': font['font'], 'color': colors['text']},
+                        paper_bgcolor=colors['graph_background'],
+                        plot_bgcolor=colors['graph_background'])
+        fig.update_xaxes(tickangle=45)
+        return fig

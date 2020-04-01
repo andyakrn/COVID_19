@@ -6,7 +6,7 @@ import plotly.graph_objects as go
 import plotly.express as px
 from ipywidgets import interact
 import pickle
-# import xgboost as xgb
+
 
 from dash.dependencies import Input, Output, State
 import plotly.express as px
@@ -17,5 +17,6 @@ from world_map import *
 from graphs import *
 from user_input import *
 from new_cases import *
-from survival_rates import *
+
+from total_and_cases_per_million import *
 import pickle

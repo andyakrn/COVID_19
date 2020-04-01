@@ -17,11 +17,7 @@ app.layout = html.Main(
         graphs4_5,
         country_comparison_figure,
         new_cases_figure,
-        survival_figure,
-        prediction_container,
-#        user_input,
-#        user_output,
-#        disclainer_container
+
     ])
 
 @app.callback(
@@ -155,47 +151,7 @@ def update_country_comparison(status, selected_countries):
     fig.update_xaxes(tickangle=45)
     return fig
 
-@app.callback(
-    Output('new_graph2', 'figure'),
-    [Input('country_dropdown2', 'value')])
-def new_cases_by_country(country):
-    country_df = grouped_df.loc[grouped_df['Country/Region']==country]
-    country_df['Yesterday_Cases'] = country_df['Confirmed'].shift(1)
-    country_df['New_Cases'] = country_df['Confirmed'] - country_df['Yesterday_Cases']
-    fig = px.bar(country_df,
-                        x='Date',
-                        y='New_Cases',
-                        template='plotly_dark',
-                        title='New Cases by Day in {}'.format(country),
-                        color_discrete_sequence = ['red'])
-    fig.update_layout(font={'family': font['font'], 'color': colors['text']},
-                      paper_bgcolor=colors['graph_background'],
-                      plot_bgcolor=colors['graph_background'])
-    fig.update_xaxes(tickangle=45)
-    return fig
-
-# @app.callback(
-#     Output('user-output', 'children'),
-#     [Input('submit-button', 'n_clicks')],
-#      [State('age', 'value'),
-#      State('gender', 'value')])
-# def return_inputs(n_clicks, age, gender):
-#     if n_clicks==0:
-#         return 'RESULT: Enter age and gender for likelihood of survival.'
-#     if n_clicks>0:
-#         if age == None or gender == None:
-#             return 'RESULT: Enter age and gender for likelihood of survival.'
-#         elif age != None and gender != None:
-#             if gender=='Female':
-#                 gender_numeric=0
-#             else:
-#                 gender_numeric=1
-#             prediction = rfc_model.predict([[age, gender_numeric]])
-#             if prediction == 1: 
-#                 prognosis = 'Survival is likely.'
-#             else: 
-#                 prognosis = 'Severe complications are likely.'
-#             return 'RESULT: Prognosis for a {} year old {}: {}'.format(age, gender, prognosis)
+new_cases(app)
 
 if __name__ == '__main__':
     app.run_server(debug=True)
