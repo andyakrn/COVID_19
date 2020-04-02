@@ -6,13 +6,14 @@ colors = {
     'page_background': '#181A1C',
     'bar_color': '#b30000'}
 
-font = {'font': 'Calibri'}
+font = {'font': 'sans-serif'}
 
 main_app_style = {'backgroundColor': colors['body_background'],
                   'width': '97%',
                   'padding': '10px',
                   'display': 'flex',
-                  'flex-direction': 'column'}
+                  'flex-direction': 'column',
+                  }
 
 large_viz_container_style = {'display': 'flex',
                              'flex-direction': 'column',
@@ -31,11 +32,10 @@ small_viz_container_style = {'display': 'flex',
                              'flex-direction': 'row',
                              'margin-left': '0px',
                              'margin-right': '0px',
-                            }
+                             }
 
 small_viz_style = {'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 2)',
                    'width': '50%',
-                   
                    'padding': '0',
                    'border': '.5pt solid #a6a6a6',
                    'font-color': colors['text']}
@@ -72,14 +72,20 @@ summary_style = {'textAlign': 'left',
                  'line-height': '1.7',
                  'font-family': font['font']}
 
-header_1_style = {'backgroundColor': colors['header_background'],
-                  'textAlign': 'center',
+header_1_style = {'display': 'flex',
+                  'flex-direction': 'column',
+                  'justify-content': 'center',
+                  'text-align': 'center',
                   'color': colors['text'],
                   'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 2)',
                   'margin-top': '0px',
                   'margin-bottom': '0px',
                   'width': '100%',
-                  'font-family': font['font']}
+                  'font-family': font['font'],
+                  'background-image': "url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSqr00VhzlBAcGywC5yvW5PjQk9UM1fuP46ypv7THkW6d2luTIh')",
+                  'background-repeat': 'no-repeat',
+                  'background-size': 'cover',
+                  'height': '100px'}
 
 prediction_style = {'textAlign': 'left',
                     'backgroundColor': colors['header_background'],
