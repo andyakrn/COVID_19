@@ -9,7 +9,7 @@ global_plot = dcc.Graph(id='global_plot', style=small_viz_style)
 country_dropdown = dcc.Dropdown(id='country_dropdown',
                                 options=[{'label': i, 'value': i}
                                          for i in countries],
-                                value='China',
+                                value='United States',
                                 placeholder='Select a Country',
                                 style={'font-family': font['font']})
 
