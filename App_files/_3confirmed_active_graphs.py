@@ -1,4 +1,4 @@
-from imports import *
+from App_files.imports import *
 
 graph_df = grouped_df.groupby('Date').agg('sum').reset_index()
 graph_df['Date'] = pd.to_datetime(graph_df['Date'])

@@ -1,4 +1,4 @@
-from imports import *
+from App_files.imports import *
 
 app = dash.Dash(__name__, )
 

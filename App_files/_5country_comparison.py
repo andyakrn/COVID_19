@@ -1,4 +1,4 @@
-from imports import *
+from App_files.imports import *
 
 types_of_cases1 = ['Confirmed', 'Active', 'Recovered', 'Deaths']
 

@@ -1,4 +1,4 @@
-from imports import *
+from App_files.imports import *
 
 country_dropdown2 = dcc.Dropdown(id='country_dropdown2',
                                  options=[{'label': i, 'value': i}
