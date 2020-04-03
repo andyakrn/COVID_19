@@ -1,7 +1,7 @@
 import pickle
 import pandas as pd
 
-grouped_df = pd.read_pickle('../Data/COVID_Hopkins_df.pickle')
+grouped_df = pd.read_pickle('../COVID_19/Data/COVID_Hopkins_df.pickle')
 
 import dash
 import dash_core_components as dcc
