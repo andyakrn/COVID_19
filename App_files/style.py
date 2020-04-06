@@ -43,7 +43,7 @@ small_viz_style = {'box-shadow': '0 1px 3px 0 rgba(0, 0, 0, 2)',
 radio_item_style = {'border': '.5pt solid #a6a6a6',
                     'fontsize': 20,
                     'color': colors['text'],
-                    'backgroundColor': colors['header_background'],
+                    'backgroundcolor': colors['header_background'],
                     'font-family': font['font'],
                     }
 

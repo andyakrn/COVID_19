@@ -1,13 +1,18 @@
 from imports import *
 
+hardest_hit_countries = list(grouped_df.groupby('Country/Region').agg('max')['Confirmed'].sort_values(ascending=False)[0:7].index)
+
+if hardest_hit_countries[0]=='United States':
+    country_dropdown_value = hardest_hit_countries[1]
+else:
+    country_dropdown_value = hardest_hit_countries[0]
+
 country_dropdown2 = dcc.Dropdown(id='country_dropdown2',
                                  options=[{'label': i, 'value': i}
                                           for i in countries],
-                                 value='United States',
+                                 value=country_dropdown_value,
                                  placeholder='Select a Country',
                                  style={'font-family': font['font']})
-
-hardest_hit_countries = list(grouped_df.groupby('Country/Region').agg('max')['Confirmed'].sort_values(ascending=False)[0:7].index)
 
 new_log_cases = grouped_df.loc[grouped_df['Country/Region'].isin(hardest_hit_countries)]
 
@@ -53,10 +58,10 @@ def new_cases(app):
     def new_cases_by_country(country):
         country_df = grouped_df.loc[grouped_df['Country/Region']==country]
         country_df['Yesterday_Cases'] = country_df['Confirmed'].shift(1)
-        country_df['New_Cases'] = country_df['Confirmed'] - country_df['Yesterday_Cases']
+        country_df['New Cases'] = country_df['Confirmed'] - country_df['Yesterday_Cases']
         fig = px.bar(country_df,
                             x='Date',
-                            y='New_Cases',
+                            y='New Cases',
                             template='plotly_dark',
                             title='New Cases by Day in {}'.format(country),
                             color_discrete_sequence = ['red'])
