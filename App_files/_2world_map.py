@@ -32,7 +32,7 @@ def update_world_map(app):
                                     locationmode='country names',
                                     color='value',
                                     hover_name='Country/Region',
-                                    title='{} by Country Over Time<br>(Hover for Country Names)'.format(
+                                    title='{} by Country Over Time (Hover for Country Names)'.format(
                                         radio_item),
                                     color_continuous_scale=['green', 'yellow',
                                                             'orange', 'orangered', 'red'],
@@ -40,8 +40,12 @@ def update_world_map(app):
                                     animation_frame='Date',
                                     range_color=[0, max_cases],
                                     template='plotly_dark',
-                                    height=600)
+                                    height=600,
+                                    )
         world_map_fig.update_layout(font={'family': font['font'], 'color': colors['text']},
                                     paper_bgcolor=colors['graph_background'],
-                                    plot_bgcolor=colors['graph_background'])
+                                    plot_bgcolor=colors['graph_background'],
+                                    autosize = False,
+                                    margin=dict(l=15, r=95, t=60, b=145, autoexpand=False),
+                                    )
         return world_map_fig

@@ -13,7 +13,7 @@ The purpose of this project is to create a dashboard that visualizes the virus' 
 the globe. It features an animated map that illustrates the progression of cases over time, 
 along with a plot that allows the user to compare the growth rates of cases between two countries. 
 View our ''', 
-html.A('github page', href="https://github.com/andyakrn/COVID_19", style={'color': 'red'},
+html.A('Github page', href="https://github.com/andyakrn/COVID_19", style={'color': 'red'},
 target='_blank'), 
 ' for data sources and other information.']
 ,
