@@ -1,4 +1,4 @@
-from App_files.imports import *
+from imports import *
 
 status = ['Confirmed', 'Active', 'Recovered', 'Deaths']
 
