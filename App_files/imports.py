@@ -17,6 +17,8 @@ from _1header_buttons_summary import *
 from _2world_map import *
 # from _3confirmed_active_graphs import *
 # from _4total_and_cases_per_million import *
-from _5country_comparison import *
-from _6new_cases import *
+from _5new_cases import *
+from _6country_comparison import *
 from _7footer import *
+from world_tab import *
+from us_tab import *
