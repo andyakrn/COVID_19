@@ -32,8 +32,8 @@ def update_world_map(app):
                                     locationmode='country names',
                                     color='value',
                                     hover_name='Country/Region',
-                                    title='{} by Country Over Time (Hover for Country Names)'.format(
-                                        radio_item),
+                                    # title='{} by Country Over Time (Hover for Country Names)'.format(
+                                    #     radio_item),
                                     color_continuous_scale=['green', 'yellow',
                                                             'orange', 'orangered', 'red'],
                                     projection='natural earth',
@@ -46,6 +46,9 @@ def update_world_map(app):
                                     paper_bgcolor=colors['graph_background'],
                                     plot_bgcolor=colors['graph_background'],
                                     autosize = False,
-                                    margin=dict(l=15, r=95, t=60, b=145, autoexpand=False),
+                                    margin=dict(l=0, r=0, t=0, b=0, autoexpand=False),
+                                    
                                     )
+        world_map_fig.update_layout(coloraxis_colorbar=dict(xanchor="right", x=.05, xpad=0),
+        )
         return world_map_fig

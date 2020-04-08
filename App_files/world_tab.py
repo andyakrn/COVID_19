@@ -3,7 +3,7 @@ from imports import *
 world_tab = dcc.Tab(label='World Data',
                     children=[world_map,
                               new_cases_figure,
-                              country_comparison_figure],
+                              large_figure],
                     style={'border': '.5pt solid #a6a6a6',
                            'font-family': font['font'],
                            'backgroundcolor': colors['body_background'],
