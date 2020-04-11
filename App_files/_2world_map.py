@@ -32,23 +32,22 @@ def update_world_map(app):
                                     locationmode='country names',
                                     color='value',
                                     hover_name='Country/Region',
-                                    # title='{} by Country Over Time (Hover for Country Names)'.format(
-                                    #     radio_item),
+                                    title='{} by Country Over Time (Hover for Country Names)'.format(
+                                        radio_item),
                                     color_continuous_scale=['green', 'yellow',
                                                             'orange', 'orangered', 'red'],
                                     projection='natural earth',
                                     animation_frame='Date',
                                     range_color=[0, max_cases],
                                     template='plotly_dark',
-                                    height=600,
+                                    height=600
                                     )
         world_map_fig.update_layout(font={'family': font['font'], 'color': colors['text']},
                                     paper_bgcolor=colors['graph_background'],
                                     plot_bgcolor=colors['graph_background'],
-                                    autosize = False,
-                                    margin=dict(l=0, r=0, t=0, b=0, autoexpand=False),
+                                    autosize = True,                                   
+                        
                                     
                                     )
-        world_map_fig.update_layout(coloraxis_colorbar=dict(xanchor="right", x=.05, xpad=0),
-        )
+        world_map_fig.update_layout(coloraxis_colorbar=dict(xanchor="right", x=.05, xpad=0))
         return world_map_fig
