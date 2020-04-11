@@ -2,6 +2,7 @@ import pickle
 import pandas as pd
 
 grouped_df = pd.read_pickle('../Data/COVID_Hopkins_df.pickle')
+us_df = pd.read_pickle('../Data/CSSE_US_df.pickle')
 
 import dash
 import dash_core_components as dcc
@@ -20,5 +21,7 @@ from _2world_map import *
 from _5new_cases import *
 from _6country_comparison import *
 from _7footer import *
+from _8us_map import *
+from _9us_new_cases import *
 from world_tab import *
 from us_tab import *

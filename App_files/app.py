@@ -19,6 +19,8 @@ app.layout = html.Main(
 # Callbacks
 update_world_map(app)
 status_comparison_graph(app)
+update_us_map(app)
+new_state_cases(app)
 new_cases(app)
 
 if __name__ == '__main__':

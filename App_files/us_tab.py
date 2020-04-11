@@ -1,6 +1,7 @@
 from imports import *
 
 us_tab = dcc.Tab(label='U.S. Data',
+                 children=[us_map, new_state_cases_figure],
                  style={'border': '.5pt solid #a6a6a6',
                         'font-family': font['font'],
                         'backgroundcolor': colors['body_background'],
