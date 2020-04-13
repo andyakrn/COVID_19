@@ -22,6 +22,7 @@ status_comparison_graph(app)
 update_us_map(app)
 new_state_cases(app)
 new_cases(app)
+mortality_graph(app)
 
 if __name__ == '__main__':
     app.run_server(debug=True)

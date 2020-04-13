@@ -73,11 +73,11 @@ country_comparison_figure = html.Figure(style={'width': '50%',
                                                   radio_and_dropdown,
                                                   country_comparison_graph])
 
-additional_graph = dcc.Graph(style={'border': '.5pt solid #a6a6a6',
-                                    'width': '50%'})
+# additional_graph = dcc.Graph(style={'border': '.5pt solid #a6a6a6',
+#                                     'width': '50%'})
 
 large_figure = html.Figure(children=[country_comparison_figure,
-                                     additional_graph],
+                                     mortality_figure],
                            style={'display': 'flex',
                                   'flex-direction': 'row',
                                   'margin-left': '0px',

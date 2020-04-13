@@ -19,10 +19,12 @@ from ipywidgets import interact
 from style import *
 from _1header_buttons_summary import *
 from _2world_map import *
-from _5new_cases import *
-from _6country_comparison import *
-from _7footer import *
-from _8us_map import *
-from _9us_new_cases import *
+from _3new_cases import *
+from _4mortality import *
+from _5country_comparison import *
+
+from _6us_map import *
+from _7us_new_cases import *
+from _8footer import *
 from world_tab import *
 from us_tab import *
