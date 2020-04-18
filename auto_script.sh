@@ -1,4 +1,4 @@
-python Data/CSSE_US_data.py
+python CSSE_US_data.py
 python Data/Hopkins_data.py
 
 git add .
