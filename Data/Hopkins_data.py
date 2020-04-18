@@ -170,7 +170,7 @@ grouped_df['Datetime'] = grouped_df['Date'].apply(lambda x: pd.to_datetime(x))
 # In[18]:
 
 
-pop_df = pd.read_csv('pop_df4.csv')
+pop_df = pd.read_csv('/Users/christyliner/Documents/COVID_19/Data/pop_df4.csv')
 
 
 # In[19]:
