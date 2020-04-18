@@ -210,6 +210,4 @@ with open('Data/CSSE_US_df.pickle', 'wb') as pickle_out:
 # In[139]:
 
 
-with open('../CSSE_US_df.pickle', 'wb') as pickle_out:
-    pickle.dump(grouped_df, pickle_out)
 
