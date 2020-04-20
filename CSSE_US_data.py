@@ -123,7 +123,7 @@ deaths_df = preprocess_df(deaths_df_raw, 'Deaths')
 grouped_df = pd.merge(confirmed_df, deaths_df, how='inner', on=['Date', 'State', 'State_code'])
 grouped_df['Datetime'] = grouped_df['Date'].apply(lambda x: pd.to_datetime(x))
 
-grouped_df = grouped_df.sort_values(by='Datetime').reset_index()
+
 
 
 # In[133]:
@@ -162,6 +162,7 @@ grouped_df=grouped_df.merge(df_tst_daily,
                                                         'New_Weekly_Cases',
                                                         'totalTestResults']]
 
+grouped_df = grouped_df.sort_values(by='Datetime').reset_index()
 
 pickle_out = open('/Users/christyliner/Documents/COVID_19/Data/CSSE_US_df.pickle', 'wb')
 pickle.dump(grouped_df, pickle_out)
