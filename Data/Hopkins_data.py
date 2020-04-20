@@ -238,7 +238,7 @@ grouped_df['New Weekly Cases'] = np.where(grouped_df['Country/Region']==grouped_
 # In[26]:
 
 
-pickle_out = open('COVID_Hopkins_df.pickle', 'wb')
+pickle_out = open('/Users/christyliner/Documents/COVID_19/Data/COVID_Hopkins_df.pickle', 'wb')
 pickle.dump(grouped_df, pickle_out)
 pickle_out.close()
 
