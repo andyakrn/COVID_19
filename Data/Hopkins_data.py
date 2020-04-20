@@ -22,7 +22,7 @@ import plotly.express as px
 # In[2]:
 
 
-with open("github.txt") as myfile:
+with open("/Users/christyliner/Documents/COVID_19/Data/github.txt") as myfile:
     firstNlines=myfile.readlines()[0:2]
 myfile.close()
 g = Github(firstNlines[0].strip(), firstNlines[1])

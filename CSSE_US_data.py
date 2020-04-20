@@ -23,7 +23,7 @@ mypath = 'data_csse/'
 # In[123]:
 
 
-with open("data/github.txt") as myfile:
+with open("/Users/christyliner/Documents/COVID_19/Data/github.txt") as myfile:
     firstNlines=myfile.readlines()[0:2]
 myfile.close()
 g = Github(firstNlines[0].strip(), firstNlines[1])
@@ -203,7 +203,7 @@ grouped_df.sort_values(by='Date',inplace=True)
 # In[138]:
 
 
-with open('Data/CSSE_US_df.pickle', 'wb') as pickle_out:
+with open('/Users/christyliner/Documents/COVID_19/Data/CSSE_US_df.pickle', 'wb') as pickle_out:
     pickle.dump(grouped_df, pickle_out)
 
 
