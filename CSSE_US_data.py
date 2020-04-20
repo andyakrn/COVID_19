@@ -1,13 +1,3 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# <h2><center>
-#     Loading In Data
-#     </center></h2>
-
-# In[122]:
-
-
 from github import Github
 import os
 import pickle
@@ -112,24 +102,12 @@ sha = get_sha_for_tag(repo, 'master')
 download_directory(repo, sha, 'csse_covid_19_data/csse_covid_19_time_series/')
 
 
-# In[ ]:
-
-
-
-
-
 # In[130]:
 
 
 confirmed_df_raw = pd.read_csv('data_csse/time_series_covid19_confirmed_US.csv')
 deaths_df_raw = pd.read_csv('data_csse/time_series_covid19_deaths_US.csv')
 #recovered_df = pd.read_csv('data_csse/time_series_covid19_recovered_global.csv')
-
-
-# In[ ]:
-
-
-
 
 
 # In[131]:
@@ -140,17 +118,12 @@ deaths_df = preprocess_df(deaths_df_raw, 'Deaths')
 #recovered_df = preprocess_df(recovered_df, 'Recovered')
 
 
-# <h2><center>
-#     Preprocessing Data
-#     </center></h2>
-
-# In[132]:
 
 
 grouped_df = pd.merge(confirmed_df, deaths_df, how='inner', on=['Date', 'State', 'State_code'])
-#grouped_df = pd.merge(confirmed_and_deaths, recovered_df, how='inner', on=['Date', 'Country/Region'])
-#grouped_df['Active'] = grouped_df['Confirmed']-grouped_df['Deaths']-grouped_df['Recovered']
 grouped_df['Datetime'] = grouped_df['Date'].apply(lambda x: pd.to_datetime(x))
+
+grouped_df = grouped_df.sort_values(by='Datetime').reset_index()
 
 
 # In[133]:
@@ -190,24 +163,6 @@ grouped_df=grouped_df.merge(df_tst_daily,
                                                         'totalTestResults']]
 
 
-# <h2><center>
-#     Export Dataframe
-#     </center></h2>
-
-# In[137]:
-
-
-grouped_df.sort_values(by='Date',inplace=True)
-
-
-# In[138]:
-
-
-with open('/Users/christyliner/Documents/COVID_19/Data/CSSE_US_df.pickle', 'wb') as pickle_out:
-    pickle.dump(grouped_df, pickle_out)
-
-
-# In[139]:
-
-
-
+pickle_out = open('/Users/christyliner/Documents/COVID_19/Data/CSSE_US_df.pickle', 'wb')
+pickle.dump(grouped_df, pickle_out)
+pickle_out.close()

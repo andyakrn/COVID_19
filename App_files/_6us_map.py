@@ -21,7 +21,7 @@ def update_us_map(app):
         [Input('us_map_status_radio', 'value')])
     def update_us_figure(radio_item):
         max_cases = us_df[radio_item].max()
-        # us_df.sort_values(by='Date',inplace=True)
+        us_df.sort_values(by='Date',inplace=True)
 
         us_map_fig = px.choropleth(us_df,
                                     locations='State_code',
