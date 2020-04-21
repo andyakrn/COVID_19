@@ -1,4 +1,4 @@
-from imports import *
+from App_files.imports import *
 
 world_tab = dcc.Tab(label='World Data',
                     children=[world_map,
