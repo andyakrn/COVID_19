@@ -1,4 +1,4 @@
-from imports import *
+from App_files.imports import *
 
 countries = grouped_df['Country/Region'].unique()
 

@@ -1,4 +1,4 @@
-from imports import *
+from App_files.imports import *
 us_df['Total Tests Performed'] = us_df['totalTestResults']
 status = ['Confirmed', 'Deaths', 'Total Tests Performed']
 

@@ -1,4 +1,4 @@
-from imports import *
+from App_files.imports import *
 
 death_types = ['Observed case-fatality ratio', 'Deaths per 1M population']
 

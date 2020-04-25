@@ -1,4 +1,4 @@
-from imports import *
+from App_files.imports import *
 
 us_tab = dcc.Tab(label='U.S. Data',
                  children=[us_map, new_state_cases_figure],

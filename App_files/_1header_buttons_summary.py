@@ -1,4 +1,4 @@
-from imports import *
+from App_files.imports import *
 
 
 header1 = html.H1(children='COVID-19 Coronavirus Dashboard',

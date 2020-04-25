@@ -1,4 +1,4 @@
-from imports import *
+from App_files.imports import *
 
 brian_button = html.A(html.Button('Brian Kosiadi, BS', style=button_style),
                       href='https://www.linkedin.com/in/brian-kosiadi/',
